@@ -19,7 +19,8 @@ function setup() {
   mic = new p5.AudioIn();
   amplitude = new p5.Amplitude();
 
-  fft = new p5.FFT(0.8, binCount);
+  var smoothing = 0.8;
+  fft = new p5.FFT(smoothing, binCount);
   for (var i = 0; i <= binCount; i++) {
     bins[i] = new Bin(i, binCount);
   }
@@ -32,9 +33,7 @@ function draw() {
 
   var spectrum = fft.analyze();
 
-
   if (logView) {
-
     var prevPoint = 0;
 
     for (var i = 0; i < spectrum.length; i++) {
