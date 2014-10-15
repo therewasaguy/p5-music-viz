@@ -3,34 +3,35 @@ var mic, soundfile; // input sources
 var amplitude;
 
 var fft;
-var binCount = 1024; // bins of analysis
 
-var particles =  new Array(binCount);
+var particles = [];
 
 function preload() {
-  soundfile = loadSound('../music/Broke_For_Free_-_01_-_As_Colorful_As_Ever.mp3')
+  soundfile = loadSound('../music/Broke_For_Free_-_01_-_As_Colorful_As_Ever.mp3');
 }
 
 function setup() {
   c = createCanvas(windowWidth, windowHeight);
   noStroke();
 
+  soundfile.jump(24);
   soundfile.play();
   mic = new p5.AudioIn();
 
   amplitude = new p5.Amplitude();
 
   var smoothing = 0.8;
+  var binCount = 1024;
   fft = new p5.FFT(smoothing, binCount);
 
-  // instantiate the particles
-  for (var i = 0; i < particles.length; i++) {
-    var pos = createVector(
-      map(i, 0, 1023, 0, width),
-      random(0, height)
-    );
-    particles[i] = new Particle(pos, random(0, 5), i, particles.length);
-  }
+
+  // make three shapes that listen to different frequencies
+  var bass = new Particle(40, 60);
+  var snare = new Particle(150, 155);
+  var click = new Particle(3700);
+  particles.push(bass);
+  particles.push(snare);
+  particles.push(click);
 }
 
 function draw() {
@@ -39,8 +40,7 @@ function draw() {
   var spectrum = fft.analyze();
 
   for (var i = 0; i < particles.length; i++) {
-    var thisLevel = map(spectrum[i], 0, 255, 0, 1);
-    particles[i].update( thisLevel );
+    particles[i].update();
     particles[i].draw();
   }
 
@@ -77,21 +77,19 @@ function toggleInput() {
 // Particle class
 // ===============
 
-var Particle = function(position, scale, index, totalBins) {
-  this.position = position;
-  this.scale = scale;
+var Particle = function(freqs) {
+  this.position = createVector( random(0, width), height/2 );
+  this.scale = random(0, 1);
   this.speed = random(0, 10);
-  // var mappedColor =  map(index, 0, totalBins, 0, 255);
-  this.color = [random(0, 255), random(0,255), random(0,255)];
-}
+  this.color = color( random(0,255), random(0,255), random(0,255) );
+  this.freqs = freqs;
+};
 
-Particle.prototype.update = function(someLevel, index, totalBins) {
-  this.position.y += this.speed / (someLevel*2);
-  if (this.position.y > height) {
-    this.position.y = 0;
-  }
-  this.diameter = map(someLevel, 0, 1, 0, 100) * this.scale;
-}
+Particle.prototype.update = function() {
+  var levelRaw = fft.getEnergy(this.freqs);
+  var levelMapped = map(levelRaw, 0, 255, 0, 1);
+  this.diameter = map(levelMapped, 0, 1, 0, 100) * this.scale;
+};
 
 Particle.prototype.draw = function() {
   fill(this.color);
@@ -99,4 +97,4 @@ Particle.prototype.draw = function() {
     this.position.x, this.position.y,
     this.diameter, this.diameter
   );
-}
+};
