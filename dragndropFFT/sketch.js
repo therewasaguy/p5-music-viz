@@ -23,7 +23,7 @@ function setup() {
   osc = new p5.Oscillator();
   osc.amp(0.5);
 
-  var smoothing = 0.1;
+  var smoothing = 0.4;
   fft = new p5.FFT(smoothing, binCount);
   for (var i = 0; i <= binCount; i++) {
     bins[i] = new Bin(i, binCount);
