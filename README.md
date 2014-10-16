@@ -1,6 +1,6 @@
-p5-music-viz
+Visualizing Music with p5.js
 ============
-Welcome! Here are some resources to visualize sound with p5.js and p5.sound
+Welcome! Here are some resources to visualize sound data with p5.js and p5.sound.js
 
 Libraries:
 =============================
