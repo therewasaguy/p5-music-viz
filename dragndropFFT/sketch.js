@@ -1,8 +1,10 @@
-var mic, soundfile, amplitude;
+var mic, osc, soundfile;
+var currentSource = 'soundfile';
 
 var fft;
 var binCount = 1024;
 var bins = new Array(binCount);
+
 
 function preload() {
   soundfile = loadSound('../music/Broke_For_Free_-_01_-_As_Colorful_As_Ever.mp3')
@@ -11,15 +13,18 @@ function preload() {
 function setup() {
   c = createCanvas(windowWidth, windowHeight);
   noStroke();
+  makeDropZone(c, soundfile)
 
   // Hue Saturation Brightness
   colorMode(HSB);
 
   soundfile.play();
   mic = new p5.AudioIn();
-  amplitude = new p5.Amplitude();
+  osc = new p5.Oscillator();
+  osc.amp(0.5);
 
-  fft = new p5.FFT(0.8, binCount);
+  var smoothing = 0.4;
+  fft = new p5.FFT(smoothing, binCount);
   for (var i = 0; i <= binCount; i++) {
     bins[i] = new Bin(i, binCount);
   }
@@ -28,15 +33,10 @@ function setup() {
 function draw() {
   background(0);
 
-  displayTime();
-
   var spectrum = fft.analyze();
 
-
   if (logView) {
-
     var prevPoint = 0;
-
     for (var i = 0; i < spectrum.length; i++) {
       var previousValue = prevPoint;
       prevPoint = bins[i].drawLog(i, spectrum.length, spectrum[i], previousValue);
@@ -48,11 +48,32 @@ function draw() {
     }
   }
 
+  labelStuff();
+
+  osc.freq(selectedBin.freq);
+}
+
+function labelStuff() {
   fill(255);
   textSize(18);
   text('~'+selectedBin.freq + 'Hz (bin #' + selectedBin.index+')', mouseX, mouseY );
   text('Energy: ' + selectedBin.value, mouseX, mouseY + 20);
 
+  if (soundfile.isPlaying()) {
+    text('Current Time: ' + soundfile.currentTime().toFixed(3), width-300, 40);
+  }
+
+  text('Current Source: ' + currentSource, width-300, 20);
+}
+
+
+function makeDropZone(c, soundfile) {
+  var dropZone = new AudioDropZone(c);
+  dropZone.onTransfer = function(buf) {
+    soundfile.buffer = buf;
+    soundfile.stop();
+    soundfile.play();
+  };
 }
 
 function windowResized() {
@@ -70,22 +91,47 @@ function keyPressed() {
   }
 }
 
-function toggleInput() {
-  if (soundfile.isPlaying() ) {
-    soundfile.pause();
-    mic.start();
-    fft.setInput(mic);
-  } else {
-    soundfile.play();
-    mic.stop();
-    fft.setInput(soundfile);
-  }
+function mousePressed() {
+  osc.setType('square');
 }
 
-function displayTime() {
-  fill(255);
-  if (soundfile.isPlaying()) {
-    text('currentTime: ' + soundfile.currentTime().toFixed(3), width-300, 20);
+var inputMode = 0;
+function toggleInput() {
+  inputMode += 1;
+  inputMode = inputMode % 6;
+  switch (inputMode) {
+    case 0: // soundfile mode
+      soundfile.play();
+      osc.stop();
+      fft.setInput(soundfile);
+      currentSource = 'soundfile';
+      break;
+    case 1: // mic mode
+      mic.start();
+      soundfile.pause();
+      fft.setInput(mic);
+      currentSource = 'mic';
+      break;
+    case 2: // sine mode
+      osc.setType('sine');
+      osc.start();
+      soundfile.pause();
+      mic.stop();
+      fft.setInput(osc);
+      currentSource = 'sine';
+      break;
+    case 3: // square mode
+      osc.setType('triangle');
+      currentSource = 'triangle';
+      break;
+    case 4: // square mode
+      osc.setType('square');
+      currentSource = 'square';
+      break;
+    case 5: // square mode
+      osc.setType('sawtooth');
+      currentSource = 'sawtooth';
+      break;
   }
 }
 

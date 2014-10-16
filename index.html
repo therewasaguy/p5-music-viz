@@ -1,0 +1,68 @@
+---
+
+examples:
+  - 01_load_and_play
+  - 02_rate_and_volume
+  - 03_canvas
+  - 04_amplitude
+  - 05_toggleSource
+  - 06_particles
+  - 07_fft_spectrum
+  - 08_getEnergy
+  - 10_beat_detect_amplitude
+
+resources:
+  - dragndropFFT
+
+---
+
+<div class="page-header">
+  <h1>Welcome to p5 music viz workshop!</h1>
+</div>
+
+<div>
+  <h2>P5 Resources</h2>
+  <ul>
+    <li>
+      <a href="http://p5js.org">p5js.org</a>
+    </li>
+    <li>
+      <a href="http://p5js.org/learn/">p5js.org/learn</a>
+    </li>
+    <li>
+      <a href="http://p5js.org/reference/#/libraries/p5.sound">p5.sound documentation</a>
+    </li>
+    <li>
+      <a href="https://github.com/therewasaguy/p5.sound">p5.sound source code</a>
+    </li>
+
+  </ul>
+</div>
+
+
+<p>
+<h2>Examples:</h2>
+<ul>
+  {% for ex in page.examples %}
+    <li>
+      <a href="{{ ex }}">{{ ex }}</a>
+    </li>
+  {% endfor %}
+</ul>
+
+<h2>More Resources:</h2>
+<ul>
+  {% for r in page.resources %}
+    <li>
+      <a href="{{ r }}">{{ r }}</a>
+    </li>
+  {% endfor %}
+    <li>
+      <a href="http://p5js.org/reference/#/p5.Amplitude">p5.Amplitude (docs)</a>
+    </li>
+    <li>
+      <a href="http://p5js.org/reference/#/p5.FFT">p5.FFT (docs)</a>
+    </li>
+</ul>
+
+</p>
