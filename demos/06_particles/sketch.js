@@ -1,3 +1,9 @@
+/*
+  Object Oriented Programming!
+  Create a Particle class, and an array called particles.
+
+  For now, we'll just add particles every time we click.
+ */
 var mic, soundfile, amplitude;
 
 var particles = [];

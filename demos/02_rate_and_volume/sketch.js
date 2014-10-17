@@ -1,3 +1,7 @@
+/*
+  Control the playback rate and the volume of a sound with the mouse position
+ */
+
 var sound;
 
 // load stuff before setup

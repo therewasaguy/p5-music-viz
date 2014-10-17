@@ -1,3 +1,7 @@
+/*
+  Load and play a sound. Preload ensures that the sound has loaded by the time
+  setup is called.
+ */
 var sound;
 
 // load stuff before setup

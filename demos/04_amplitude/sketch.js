@@ -1,3 +1,7 @@
+/*
+  getLevel() from the p5.Amplitude object and map it to the ellipse size
+ */
+
 var sound;
 
 var amplitude;

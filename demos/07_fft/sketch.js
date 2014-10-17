@@ -1,9 +1,11 @@
+/*
+  Analyze the frequency spectrum with FFT.
+  Particles represent bins of the FFT frequency spectrum. 
+ */
+
 var mic, soundfile; // input sources
 
-var amplitude;
-
-var fft;
-var binCount = 1024; // bins of analysis
+var fft, binCount;
 
 var particles =  new Array(binCount);
 
@@ -18,18 +20,22 @@ function setup() {
   soundfile.play();
   mic = new p5.AudioIn();
 
-  amplitude = new p5.Amplitude();
+  // FFT
+  var smoothing = 0.8; // play with this number, between 0 and 0.99
 
-  var smoothing = 0.8;
+  // binCount = size of the array that FFT returns / divisions of the frequency spectrum.
+  // 1024 bins is the default. Must be power of 2, cuz of math.
+  binCount = 1024;
   fft = new p5.FFT(smoothing, binCount);
 
-  // instantiate the particles
+  // instantiate the particles.
   for (var i = 0; i < particles.length; i++) {
     var pos = createVector(
+      // x position corresponds with its position in the frequency spectrum
       map(i, 0, 1023, 0, width),
       random(0, height)
     );
-    particles[i] = new Particle(pos, random(0, 5), i, particles.length);
+    particles[i] = new Particle(pos);
   }
 }
 
@@ -38,6 +44,11 @@ function draw() {
 
   var spectrum = fft.analyze();
 
+  // update and draw all 1024 particles!
+  // Each particle gets a level that corresponds to
+  // the level at one bin of the FFT spectrum. 
+  // This level is like amplitude, but usually called "energy."
+  // It will be a number between 0-255.
   for (var i = 0; i < particles.length; i++) {
     var thisLevel = map(spectrum[i], 0, 255, 0, 1);
     particles[i].update( thisLevel );
@@ -58,17 +69,17 @@ function keyPressed() {
   }
 }
 
+// To prevent feedback, mic doesnt send its output.
+// So we need to tell fft to listen to the mic, and then switch back.
 function toggleInput() {
   if (soundfile.isPlaying() ) {
     soundfile.pause();
     mic.start();
     fft.setInput(mic);
-    amplitude.setInput(mic);
   } else {
     soundfile.play();
     mic.stop();
     fft.setInput(soundfile);
-    amplitude.setInput(soundfile);
   }
 }
 
@@ -77,15 +88,15 @@ function toggleInput() {
 // Particle class
 // ===============
 
-var Particle = function(position, scale, index, totalBins) {
+var Particle = function(position) {
   this.position = position;
-  this.scale = scale;
+  this.scale = random(0, 5);
   this.speed = random(0, 10);
-  // var mappedColor =  map(index, 0, totalBins, 0, 255);
   this.color = [random(0, 255), random(0,255), random(0,255)];
 }
 
-Particle.prototype.update = function(someLevel, index, totalBins) {
+// use FFT bin level to change speed and diameter
+Particle.prototype.update = function(someLevel) {
   this.position.y += this.speed / (someLevel*2);
   if (this.position.y > height) {
     this.position.y = 0;

@@ -1,3 +1,12 @@
+/*
+  Toggle the source of the sound file between a sound file and audio input (mic).
+
+  By default, the Amplitude measures the output of all sound in the sketch.
+  But the mic doesn't send sound out by default because that would create feedback.
+  So, when we change the source to a mic in the toggleInput() function below,
+  we need to reset the input of the Amplitude object.
+ */
+
 var mic;
 var soundfile;
 
@@ -18,7 +27,6 @@ function setup() {
   // amplitude.noramlize = true;
   // amplitude.smooth(0.98);
 
-  // full screen!
   c = createCanvas(windowWidth, windowHeight);
   background(0);
 }
@@ -44,6 +52,7 @@ function keyPressed() {
   }
 }
 
+// toggle input and change which source is feeding the Amplitude
 function toggleInput() {
   if (soundfile.isPlaying() ) {
     soundfile.pause();

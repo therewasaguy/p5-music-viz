@@ -1,3 +1,7 @@
+/*
+  This draws volume onto the canvas.
+  It is the volume you set with your mouse, not responding to audio...yet!
+ */
 var sound;
 
 // load stuff before setup
