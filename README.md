@@ -23,19 +23,19 @@ Getting Started
   * [SublimeText](http://www.sublimetext.com/)
   * [p5 IDE](http://p5js.org/download/)
 
-1. Load & Play a file (source) (online demo)
+1. Load & Play a file ([online demo](http://therewasaguy.github.io/p5-music-viz/demos/01_load_and_play/))
 ==============
 * [preload()](http://p5js.org/reference/#/p5/preload)
 * loadSound gives us a [p5.SoundFile](http://p5js.org/reference/#/p5.SoundFile)
 
 
-2. Control "volume" (source) (online demo)
+2. Control "volume" (source) ([online demo](http://therewasaguy.github.io/p5-music-viz/demos/02_rate_and_volume))
 ==================
 
-3. p5 Canvas (source) (online demo)
+3. p5 Canvas (source) ([online demo](http://therewasaguy.github.io/p5-music-viz/demos/03_canvas))
 ===
 
-4. Amplitude (source) (online demo)
+4. Amplitude (source) ([online demo](http://therewasaguy.github.io/p5-music-viz/demos/04_amplitude))
 ===
 * [p5.Amplitude](http://p5js.org/reference/#/p5.Amplitude)
 * smooth()
@@ -44,19 +44,19 @@ Getting Started
   * getPeaks()  --> ***demo***
   * waveform --> ***demo***
 
-5. (Toggle Source)
+5. (Toggle Source) ([online demo](http://therewasaguy.github.io/p5-music-viz/demos/05_toggleSource))
 ===
 
-6. (Particle class, getting ready for FFT Spectrum)
+6. (Particle class, getting ready for FFT Spectrum) ([online demo](http://therewasaguy.github.io/p5-music-viz/demos/06_particles))
 ===
 
-7. Frequency Spectrum
+7. Frequency Spectrum ([online demo](http://therewasaguy.github.io/p5-music-viz/demos/07_fft))
 ===
 * EQ filter ((demo)[http://p5js.org/reference/#/p5.Filter])
 * p5.FFT
-* Spectrum Tool ***demo***
+* Spectrum Tool ***[demo](http://therewasaguy.github.io/p5-music-viz/resources/fftspectrum/)***
 
-8. Peak Detection using Amplitude
+8. Peak Detection using Amplitude ([online demo](http://therewasaguy.github.io/p5-music-viz/demos/08_beat_detect_amplitude))
 ===
 * [Beat Detection is complicated!](http://stackoverflow.com/questions/657073/how-to-detect-bpm-of-the-song-by-programming)
 
