@@ -3,7 +3,7 @@ var sound;
 var amplitude;
 
 function preload() {
-  sound = loadSound('../music/Broke_For_Free_-_01_-_As_Colorful_As_Ever.mp3')
+  sound = loadSound('../../music/Broke_For_Free_-_01_-_As_Colorful_As_Ever.mp3')
 }
 
 function setup() {
