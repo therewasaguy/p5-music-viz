@@ -14,6 +14,8 @@ function setup() {
   soundfile.play();
   mic = new p5.AudioIn();
   amplitude = new p5.Amplitude();
+
+  mousePressed(); // make one particle to start...
 }
 
 function draw() {
