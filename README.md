@@ -23,17 +23,16 @@ Getting Started
   * [SublimeText](http://www.sublimetext.com/)
   * [p5 IDE](http://p5js.org/download/)
 
-1. Load & Play a file ([online demo](http://therewasaguy.github.io/p5-music-viz/demos/01_load_and_play/))
-==============
+1. Load & Play a file
+==
+2. Control "volume"
+==
+3. p5 Canvas
+==
 * [preload()](http://p5js.org/reference/#/p5/preload)
 * loadSound gives us a [p5.SoundFile](http://p5js.org/reference/#/p5.SoundFile)
+* ([online demo](http://therewasaguy.github.io/p5-music-viz/demos/03_canvas))
 
-
-2. Control "volume" (source) ([online demo](http://therewasaguy.github.io/p5-music-viz/demos/02_rate_and_volume))
-==================
-
-3. p5 Canvas (source) ([online demo](http://therewasaguy.github.io/p5-music-viz/demos/03_canvas))
-===
 
 4. Amplitude (source) ([online demo](http://therewasaguy.github.io/p5-music-viz/demos/04_amplitude))
 ===
