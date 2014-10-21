@@ -48,9 +48,11 @@ function draw() {
     }
   }
 
-  labelStuff();
+  if (typeof selectedBin !== 'undefined') {
+    labelStuff();
 
-  osc.freq(selectedBin.freq);
+    osc.freq(selectedBin.freq);
+  }
 }
 
 function labelStuff() {
