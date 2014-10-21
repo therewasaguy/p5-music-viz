@@ -11,18 +11,18 @@ function preload() {
 }
 
 function setup() {
+  c = createCanvas(windowWidth, windowHeight);
+  background(0);
+
   sound.play();
 
   // create a p5.Amplitude object. This will listen to all output and measure the level
   amplitude = new p5.Amplitude();
   
-  // // amplitude options:  
-  // amplitude.noramlize = true;
-  // amplitude.smooth(0.98);
+  // amplitude options:  
+  amplitude.normalize = true;
+  amplitude.smooth(0.01);
 
-  // full screen!
-  c = createCanvas(windowWidth, windowHeight);
-  background(0);
 }
 
 function draw() {
@@ -34,6 +34,7 @@ function draw() {
   ellipse(width/2, height/2, level*500, level*500);
 }
 
+// helper methods
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   background(0);

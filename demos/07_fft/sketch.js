@@ -5,7 +5,9 @@
 
 var mic, soundfile; // input sources
 
-var fft, binCount;
+var fft;
+var smoothing = 0.8;
+var binCount = 1024;
 
 var particles =  new Array(binCount);
 
@@ -22,10 +24,6 @@ function setup() {
 
   // FFT
   var smoothing = 0.8; // play with this number, between 0 and 0.99
-
-  // binCount = size of the array that FFT returns / divisions of the frequency spectrum.
-  // 1024 bins is the default. Must be power of 2, cuz of math.
-  binCount = 1024;
   fft = new p5.FFT(smoothing, binCount);
 
   // instantiate the particles.

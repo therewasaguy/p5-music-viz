@@ -2,9 +2,10 @@
   The detectBeat() function decides whether we have a beat or not
   based on amplitude level and Beat Detect Variables.
  */
-var soundfile; // input sources
-
+var soundfile;
 var amplitude;
+var particles = [];
+var backgroundColor;
 
 /* 
  Beat Detect Variables
@@ -25,11 +26,9 @@ var beatCutoff = 0;
 var beatDecayRate = 0.95; // how fast does beat cutoff decay?
 var framesSinceLastbeat = 0; // once this equals beatHoldFrames, beatCutoff starts to decay.
 
-var circle;
-var backgroundColor;
 
 function preload() {
-  soundfile = loadSound('../music/YACHT_-_06_-_Summer_Song_Instrumental.mp3');
+  soundfile = loadSound('../../music/YACHT_-_06_-_Summer_Song_Instrumental.mp3');
 }
 
 function setup() {
@@ -37,11 +36,10 @@ function setup() {
   noStroke();
 
   amplitude = new p5.Amplitude();
-
-  // make a shape
-  circle = new Particle();
-
   soundfile.play();
+
+  // make a single particle.
+  particles.push( new Particle() );
 }
 
 function draw() {
@@ -50,10 +48,11 @@ function draw() {
   var level = amplitude.getLevel();
   detectBeat(level);
 
-  circle.update(level);
-  circle.draw();
+  for (var i = 0; i < particles.length; i++) {
+    particles[i].update(level);
+    particles[i].draw();
+  }
 }
-
 
 function detectBeat(level) {
   if (level  > beatCutoff && level > beatThreshold){
@@ -63,7 +62,8 @@ function detectBeat(level) {
   } else{
     if (framesSinceLastbeat <= beatHoldFrames){
       framesSinceLastbeat ++;
-    }else{
+    }
+    else{
       beatCutoff *= beatDecayRate;
       beatCutoff = Math.max(beatCutoff, beatThreshold);
     }
@@ -71,7 +71,6 @@ function detectBeat(level) {
 }
 
 function onBeat() {
-  console.log('beat!');
   backgroundColor = color( random(0,255), random(0,255), random(0,255) );
 }
 
@@ -79,28 +78,6 @@ function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   background(0);
 }
-
-// in p5, keyPressed is not case sensitive, but keyTyped is
-function keyPressed() {
-  if (key == 'T') {
-    toggleInput();
-  }
-}
-
-function toggleInput() {
-  if (soundfile.isPlaying() ) {
-    soundfile.pause();
-    mic.start();
-    fft.setInput(mic);
-    amplitude.setInput(mic);
-  } else {
-    soundfile.play();
-    mic.stop();
-    fft.setInput(soundfile);
-    amplitude.setInput(soundfile);
-  }
-}
-
 
 // ===============
 // Particle class
@@ -114,7 +91,7 @@ var Particle = function() {
 };
 
 Particle.prototype.update = function(levelRaw) {
-  this.diameter = map(levelRaw, 0, 1, 0, 100) * this.scale;
+  this.diameter = map(levelRaw, 0, 1, 0, 400) * this.scale;
 };
 
 Particle.prototype.draw = function() {

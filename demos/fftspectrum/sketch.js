@@ -91,10 +91,6 @@ function keyPressed() {
   }
 }
 
-function mousePressed() {
-  osc.setType('square');
-}
-
 var inputMode = 0;
 function toggleInput() {
   inputMode += 1;

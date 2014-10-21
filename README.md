@@ -54,7 +54,7 @@ Getting Started
 ===
 * EQ filter ((demo)[http://p5js.org/reference/#/p5.Filter])
 * p5.FFT
-* Spectrum Tool ***[demo](http://therewasaguy.github.io/p5-music-viz/resources/fftspectrum/)***
+* Spectrum Tool ***[demo](http://therewasaguy.github.io/p5-music-viz/demos/fftspectrum/)***
 
 8. Peak Detection using Amplitude ([online demo](http://therewasaguy.github.io/p5-music-viz/demos/08_beat_detect_amplitude))
 ===
