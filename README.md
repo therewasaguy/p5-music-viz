@@ -27,6 +27,12 @@ Participants may use whatever tools they wish, but the demos in this repo use th
   * [p5 IDE](http://p5js.org/download/)
 
 ### >> [Getting Started with p5](http://p5js.org/get-started/#your-first-sketch)
+A few exciting examples:
+* [Forces](http://p5js.org/learn/examples/Simulate_Forces.php)
+* [Particle System](http://p5js.org/learn/examples/Simulate_Particle_System.php)
+* [Perlin Noise](http://p5js.org/learn/examples/Math_Noise_Wave.php)
+* [Flocking](http://p5js.org/learn/examples/Simulate_Flocking.php)
+* [Particle System with Target](http://codepen.io/scottgarner/pen/ltImK?editors=001)
 
 ---
 
