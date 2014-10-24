@@ -50,7 +50,7 @@ Participants may use whatever tools they wish, but the demos in this repo use th
 **p5.FFT** - [documentation](http://p5js.org/reference/#/p5.FFT) | [source code](https://github.com/therewasaguy/p5.sound/blob/master/src/fft.js)
 *Get an array of amplitude levels across the frequency spectrum, or the time domain*
 * ```.analyze()``` returns amplitude readings from 0-255 across the frequency spectrum
-* ```.waveform()``` returns amplitude readings across a brief snapshot of time ([demo](http://therewasaguy.github.io/p5-music-viz/fftwaveform)) | [source](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/fftwaveform/sketch.js)
+* ```.waveform()``` returns amplitude readings across a brief snapshot of time ([demo](http://therewasaguy.github.io/p5-music-viz/demos/fftwaveform)) | [source](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/fftwaveform/sketch.js)
 
 ## Demos:
 ### [FFT Spectrum Drag 'n Drop multi-tool](http://therewasaguy.github.io/p5-music-viz/demos/fftspectrum/) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/fftspectrum)
