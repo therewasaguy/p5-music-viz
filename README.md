@@ -73,10 +73,13 @@ A few exciting examples:
 * [Marius Watz' Sound As Data workshop with Processing](https://github.com/mariuswatz/ITP2013Parametric/blob/master/ITP-workshops/20131111-ITP-Sound-As-Data/) // [blog post](http://workshop.evolutionzone.com/2013/11/12/itp-sound-as-data-workshop-code/)
 * [Pitch Detection - Web Audio Demo](https://webaudiodemos.appspot.com/pitchdetect/)
 * Echo Nest [Remix API](http://echonest.github.io/remix/) can get you beats, tatums, [regular API](http://developer.echonest.com/docs/v4) has more data about music/artists/songs.
+* [p5.gibber](http://charlie-roberts.com/gibber/p5-gibber/) Rapid music sequencing and synthesis. Also its own [live coding environment](http://gibber.mat.ucsb.edu/).
 * [Tone.js](https://github.com/TONEnoTONE/Tone.js) is a JS library for composing interactive music.
 
 ### Music Visualization Inspiration...
 * [Optical Poem, Oskar Fischinger's 1938 visualization of Franz Liszt's "2nd Hungarian Rhapsody"](https://www.youtube.com/watch?v=they7m6YePo)
 * [Kandinsky's Color Theory](http://lettersfrommunich.wikispaces.com/Kandinsky's+Color+Theory)
 * [Notations21](http://www.notations21.net/)
+* [Patatap](http://www.patatap.com/)
+* [Piano Phase](http://www.pianophase.com/)
 * [Music Makes You Travel](http://www.openprocessing.org/sketch/138877)
