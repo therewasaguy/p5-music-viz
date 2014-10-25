@@ -27,7 +27,7 @@ Participants may use whatever tools they wish, but the demos in this repo use th
   * [SublimeText](http://www.sublimetext.com/)
   * [p5 IDE](http://p5js.org/download/)
 
-### >> [Getting Started with p5](http://p5js.org/get-started/#your-first-sketch)
+### [Getting Started with p5](http://p5js.org/get-started/#your-first-sketch)
 A few more complex p5 examples:
 * [Forces](http://p5js.org/learn/examples/Simulate_Forces.php)
 * [Particle System](http://p5js.org/learn/examples/Simulate_Particle_System.php)
@@ -44,20 +44,24 @@ A few more complex p5 examples:
 
 **p5.SoundFile** - [documentation](http://p5js.org/reference/#/p5.SoundFile) | [source code](https://github.com/therewasaguy/p5.sound/blob/master/src/soundfile.js)
 *play an mp3 or ogg file*
+
 - To ensure file is loaded by the time you want to play it, ```loadsound()``` during p5's ```preload()```, or with a callback.
 - To ensure browser compatability, you can provide both mp3 and ogg options.
    + Convert to ogg [here](http://media.io/), and specify multiple filetypes with the [soundFormats()](http://p5js.org/reference/#/p5.sound/soundFormats) method.
 - ```.getPeaks()``` - an array of peak amplitudes over the course of the entire sound file. [demo](http://therewasaguy.github.io/p5-music-viz/demos/drawpeaks_with_playhead/) | [source](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/drawpeaks_with_playhead/sketch.js)
 
 **p5.Amplitude** - [documentation](http://p5js.org/reference/#/p5.Amplitude) | [source code](https://github.com/therewasaguy/p5.sound/blob/master/src/amplitude.js)
-*Analyze overall volume level*
-* .getLevel() returns a Root Mean Square (RMS) amplitude reading, between 0.0 and 1.0
-* try smoothing!
+
+*Analyze volume*
+
+* ```.getLevel()``` returns a Root Mean Square (RMS) amplitude reading, between 0.0 and 1.0, usually peaking at 0.5
+* try smoothing
 
 **p5.FFT** - [documentation](http://p5js.org/reference/#/p5.FFT) | [source code](https://github.com/therewasaguy/p5.sound/blob/master/src/fft.js)
-*Get an array of amplitude levels across the frequency spectrum, or the time domain*
+
+*Analyze amplitude over time or frequency*
 * ```.analyze()``` returns amplitude readings from 0-255 across the frequency spectrum
-* ```.waveform()``` returns amplitude readings across a brief snapshot of time. [demo](http://therewasaguy.github.io/p5-music-viz/demos/fftwaveform)) | [source](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/fftwaveform/sketch.js)
+* ```.waveform()``` returns amplitude readings across a brief snapshot of time. [demo](http://therewasaguy.github.io/p5-music-viz/demos/fftwaveform) | [source](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/fftwaveform/sketch.js)
 
 
 ## Demos:
@@ -91,4 +95,5 @@ Music included in the demos/repo:
 * [Patatap](http://www.patatap.com/)
 * [Piano Phase](http://www.pianophase.com/)
 * [jeffro / xtal](http://jeffro.nfshost.com/)
+* [Oscillator Art](http://oscillator-art.herokuapp.com)
 * [Music Makes You Travel](http://www.openprocessing.org/sketch/138877)
