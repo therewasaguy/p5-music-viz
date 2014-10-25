@@ -2,7 +2,7 @@
 
 Music can trigger our emotions, and evoke the full range of our senses. Take the sinesthetic artist Kandinsky, who associated musical qualities with particular colors and shapes. A computer processes music differently, as a stream of numbers. As data. How can we map this data onto meaningul visuals that enhance our experience of music?
 
-This workshop is for anyone who would like to explore sound data, music, and visuals. We'll demonstrate types of data we can get from digital signal processing using interactive "sketches" in p5.js. We'll likely focus on Amplitude, Frequency Spectrum, and Beat Detection. We'll play with various approaches for mapping sound data onto meaningul visuals, and collaborate in the creation of online music visualizations.
+This session is for anyone who would like to explore sound data, music, and visuals. We'll demonstrate types of data we can get from digital signal processing using interactive "sketches" in p5.js. We'll likely focus on Amplitude, Frequency Spectrum, and maybe some DIY Beat Detection. We'll play with various approaches for mapping sound data onto meaningul visuals, and collaborate in the creation of online music visualizations.
 
 ### Libraries
 Participants may use whatever tools they wish, but the demos in this repo use the following libraries:
