@@ -45,7 +45,7 @@ A few more complex p5 examples:
 - ```loadsound()``` creates a SoundFile. Use during ```preload()```, or with a callback.
 - To ensure browser compatability, you can provide both mp3 and ogg options.
    + Convert to ogg [here](http://media.io/), and specify multiple filetypes with the [soundFormats()](http://p5js.org/reference/#/p5.sound/soundFormats) method.
-- ```.getPeaks()``` - an array of peak amplitudes over the course of the entire sound file. [demo](http://therewasaguy.github.io/p5-music-viz/demos/drawpeaks_with_playhead/) | [source](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/drawpeaks_with_playhead/sketch.js)
+- ```.getPeaks()``` - an array of peak amplitudes over the course of the entire sound file. [demo](http://therewasaguy.github.io/p5-music-viz/demos/02_draw_peaks_and_playhead/) | [source](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/02_draw_peaks_and_playhead/sketch.js)
 
 [**p5.Amplitude**](http://p5js.org/reference/#/p5.Amplitude) - *Analyze volume.* [documentation](http://p5js.org/reference/#/p5.Amplitude) | [source code](https://github.com/therewasaguy/p5.sound/blob/master/src/amplitude.js) 
 - ```.getLevel()``` returns a Root Mean Square (RMS) amplitude reading, between 0.0 and 1.0, usually peaking at 0.5
@@ -53,24 +53,23 @@ A few more complex p5 examples:
 
 [**p5.FFT**](http://p5js.org/reference/#/p5.FFT) - *Analyze amplitude over time or frequency.* [documentation](http://p5js.org/reference/#/p5.FFT) | [source code](https://github.com/therewasaguy/p5.sound/blob/master/src/fft.js) 
 - ```.analyze()``` returns amplitude readings from 0-255 across the frequency spectrum
-- ```.waveform()``` returns amplitude readings from 0-255 across a brief snapshot of time. [demo](http://therewasaguy.github.io/p5-music-viz/demos/fftwaveform) | [source](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/fftwaveform/sketch.js)
+- ```.waveform()``` returns amplitude readings from 0-255 across a brief snapshot of time. [demo](http://therewasaguy.github.io/p5-music-viz/demos/03_fft_waveform) | [source](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/03_fft_waveform/sketch.js)
 
 
 ## Demos:
-### [Hello Amplitude](http://therewasaguy.github.io/p5-music-viz/demos/04_amplitude) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/04_amplitude/sketch.js)
+### [Hello Amplitude](http://therewasaguy.github.io/p5-music-viz/demos/01_hello_amplitude) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/01_hello_amplitude/sketch.js)
 
-### [Draw Peaks w/ Playhead](http://therewasaguy.github.io/p5-music-viz/demos/drawpeaks_with_playhead) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/drawpeaks_with_playhead/sketch.js)
+### [Draw Peaks w/ Playhead](http://therewasaguy.github.io/p5-music-viz/demos/02_draw_peaks_and_playhead) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/02_draw_peaks_and_playhead/sketch.js)
 
-### [FFT Waveform (Oscilloscope)](http://therewasaguy.github.io/p5-music-viz/demos/fftwaveform) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/fftwaveform/sketch.js)
+### [FFT Waveform (Oscilloscope)](http://therewasaguy.github.io/p5-music-viz/demos/03_fft_waveform) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/03_fft_waveform/sketch.js)
 
-### [FFT Spectrum Drag, Drop 'n Analyze](http://therewasaguy.github.io/p5-music-viz/demos/fftspectrum/) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/fftspectrum/sketch.js)
+### [FFT Spectrum Drag, Drop 'n Analyze](http://therewasaguy.github.io/p5-music-viz/demos/04_fft_freq_spectrum/) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/04_fft_freq_spectrum/sketch.js)
 
-### [FFT Particle System](http://therewasaguy.github.io/p5-music-viz/demos/07_fft) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/07_fft/sketch.js)
+### [FFT Particle System](http://therewasaguy.github.io/p5-music-viz/demos/05_fft_particle_system) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/05_fft_particle_system/sketch.js)
 
-### [Beat Detection](http://therewasaguy.github.io/p5-music-viz/demos/08_beat_detect_amplitude) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/08_beat_detect_amplitude/sketch.js)
+### [Beat Detection](http://therewasaguy.github.io/p5-music-viz/demos/06_beat_detect_amplitude) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/06_beat_detect_amplitude/sketch.js)
 
-----------
-Music included in the demos/repo:
+***Music included in the demos/repo:***
 - [Yacht](http://teamyacht.com/) - Summer Song (Instrumental) - [See Mystery Lights Instrumentals](http://freemusicarchive.org/music/YACHT/See_Mystery_Lights_Instrumentals/) [Creative Commons BY-NC-SA](http://creativecommons.org/licenses/by-nc-sa/3.0/us/)
 - [Broke For Free](http://brokeforfree.bandcamp.com/) - As Colorful As Ever - [Layers](http://freemusicarchive.org/music/Broke_For_Free/Layers/) - [Creative Commons BY-NC](http://creativecommons.org/licenses/by-nc/3.0/)
 - For more Creative Commons resources, check out the [Free Music Archive's Guide to Online Audio Resources](https://docs.google.com/document/d/1mbF5vgWp9duoGMxNl-Y8tEyWbFhkgw0JBK8F7A2cg68/edit?usp=sharing)
