@@ -21,7 +21,7 @@ Participants may use whatever tools they wish, but the demos in this repo use th
 
 
 ### Setup
-* Download this github repo, and build off of the empty **example sketch in the viz_gallery folder**. It links to the libraries.
+* Download this github repo, and build off of the empty **example sketch in the template folder**. It links to the libraries.
 * [Running p5.js on a local server](https://github.com/lmccart/p5.js/wiki/Local-server)
 * You'll need a text editor. Some options:
   * [SublimeText](http://www.sublimetext.com/)
