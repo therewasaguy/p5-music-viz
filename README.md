@@ -1,8 +1,8 @@
 # Visualizing Music with p5.js
 
-Music can trigger our emotions, and evoke the full range of our senses. Take the sinesthetic artist Kandinsky, who associated musical qualities with particular colors and shapes. A computer processes music differently, as a stream of numbers. As data. How can we map this data onto meaningful visuals that enhance our experience of music?
+Our perception of music defies technology. Music triggers our emotions, and evokes the full range of our senses. Take the artist Kandinsky, who associated musical qualities with particular colors and shapes. Meanwhile, a computer processes music as numbers and data which can be incredibly powerful. How can we map this data onto meaningful visuals that enhance our experience of music?
 
-This session is for anyone who would like to explore sound data, music, and visuals. We'll demonstrate types of data we can get from digital signal processing using interactive sketches in p5.js. We'll likely focus on Amplitude, Frequency Spectrum, and maybe some DIY Beat Detection. We'll play with various approaches for mapping sound data onto meaningul visuals, and collaborate in the creation of online music visualizations.
+This session is for anyone who would like to explore music, visuals and creative coding for the web. We'll demonstrate types of data we can get from digital signal processing using interactive sketches in p5.js and the p5.sound library that builds upon the Web Audio API. We'll focus on Amplitude, Frequency Spectrum, and maybe some DIY Beat Detection. We'll share ideas and collaborate in the creation of online music visualizations.
 
 
 ### Libraries
