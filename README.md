@@ -50,16 +50,12 @@ A few more complex p5 examples:
    + Convert to ogg [here](http://media.io/), and specify multiple filetypes with the [soundFormats()](http://p5js.org/reference/#/p5.sound/soundFormats) method.
 - ```.getPeaks()``` - an array of peak amplitudes over the course of the entire sound file. [demo](http://therewasaguy.github.io/p5-music-viz/demos/drawpeaks_with_playhead/) | [source](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/drawpeaks_with_playhead/sketch.js)
 
-**p5.Amplitude** - [documentation](http://p5js.org/reference/#/p5.Amplitude) | [source code](https://github.com/therewasaguy/p5.sound/blob/master/src/amplitude.js)
-
-*Analyze volume*
+**p5.Amplitude** - [documentation](http://p5js.org/reference/#/p5.Amplitude) | [source code](https://github.com/therewasaguy/p5.sound/blob/master/src/amplitude.js) *Analyze volume*
 
 * ```.getLevel()``` returns a Root Mean Square (RMS) amplitude reading, between 0.0 and 1.0, usually peaking at 0.5
-* try smoothing
+* ```.smooth()```
 
-**p5.FFT** - [documentation](http://p5js.org/reference/#/p5.FFT) | [source code](https://github.com/therewasaguy/p5.sound/blob/master/src/fft.js)
-
-*Analyze amplitude over time or frequency*
+**p5.FFT** - [documentation](http://p5js.org/reference/#/p5.FFT) | [source code](https://github.com/therewasaguy/p5.sound/blob/master/src/fft.js) *Analyze amplitude over time or frequency*
 * ```.analyze()``` returns amplitude readings from 0-255 across the frequency spectrum
 * ```.waveform()``` returns amplitude readings across a brief snapshot of time. [demo](http://therewasaguy.github.io/p5-music-viz/demos/fftwaveform) | [source](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/fftwaveform/sketch.js)
 
