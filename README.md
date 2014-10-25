@@ -4,6 +4,7 @@ Music can trigger our emotions, and evoke the full range of our senses. Take the
 
 This session is for anyone who would like to explore sound data, music, and visuals. We'll demonstrate types of data we can get from digital signal processing using interactive sketches in p5.js. We'll likely focus on Amplitude, Frequency Spectrum, and maybe some DIY Beat Detection. We'll play with various approaches for mapping sound data onto meaningul visuals, and collaborate in the creation of online music visualizations.
 
+
 ### Libraries
 Participants may use whatever tools they wish, but the demos in this repo use the following libraries:
 
@@ -58,6 +59,7 @@ A few more complex p5 examples:
 * ```.analyze()``` returns amplitude readings from 0-255 across the frequency spectrum
 * ```.waveform()``` returns amplitude readings across a brief snapshot of time. [demo](http://therewasaguy.github.io/p5-music-viz/demos/fftwaveform)) | [source](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/fftwaveform/sketch.js)
 
+
 ## Demos:
 ### [FFT Spectrum Drag 'n Drop multi-tool](http://therewasaguy.github.io/p5-music-viz/demos/fftspectrum/) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/fftspectrum)
 
@@ -71,6 +73,7 @@ Music included in the demos/repo:
 - [Broke For Free](http://brokeforfree.bandcamp.com/) - As Colorful As Ever - [Layers](http://freemusicarchive.org/music/Broke_For_Free/Layers/) - [Creative Commons BY-NC](http://creativecommons.org/licenses/by-nc/3.0/)
 - For more Creative Commons resources, check out the [Free Music Archive's Guide to Online Audio Resources](https://docs.google.com/document/d/1mbF5vgWp9duoGMxNl-Y8tEyWbFhkgw0JBK8F7A2cg68/edit?usp=sharing)
 
+
 ### More Resources...
 * [Making Audio Reactive Visuals w/ Web Audio API](http://www.airtightinteractive.com/2013/10/making-audio-reactive-visuals/)
 * [Another Approach to Beat Detection Using Web Audio API](http://tech.beatport.com/2014/web-audio/beat-detection-using-web-audio/)
@@ -80,10 +83,12 @@ Music included in the demos/repo:
 * [p5.gibber](http://charlie-roberts.com/gibber/p5-gibber/) Rapid music sequencing and synthesis. Also its own [live coding environment](http://gibber.mat.ucsb.edu/).
 * [Tone.js](https://github.com/TONEnoTONE/Tone.js) is a JS library for composing interactive music.
 
+
 ### Music Visualization Inspiration...
 * [Optical Poem, Oskar Fischinger's 1938 visualization of Franz Liszt's "2nd Hungarian Rhapsody"](https://www.youtube.com/watch?v=they7m6YePo)
 * [Kandinsky's Color Theory](http://lettersfrommunich.wikispaces.com/Kandinsky's+Color+Theory)
 * [Notations21](http://www.notations21.net/)
 * [Patatap](http://www.patatap.com/)
 * [Piano Phase](http://www.pianophase.com/)
+* [jeffro / xtal](http://jeffro.nfshost.com/)
 * [Music Makes You Travel](http://www.openprocessing.org/sketch/138877)
