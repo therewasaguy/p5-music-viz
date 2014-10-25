@@ -6,17 +6,17 @@
 
 // ====================
 
-var soundfile;
+var soundFile;
 
 var peakCount = 100;
 
 function preload() {
-  soundfile = loadSound('../../music/Broke_For_Free_-_01_-_As_Colorful_As_Ever.mp3');
+  soundFile = loadSound('../../music/Broke_For_Free_-_01_-_As_Colorful_As_Ever.mp3');
 }
 
 function setup() {
   createCanvas(800, 400);
-  soundfile.loop();
+  soundFile.loop();
   background(0);
 }
 
@@ -29,7 +29,7 @@ function draw() {
     peakCount = 8;
   }
 
-  var waveform = soundfile.getPeaks(peakCount);
+  var waveform = soundFile.getPeaks(peakCount);
   fill(0);
   stroke(0);
   strokeWeight(2);
@@ -46,5 +46,5 @@ function draw() {
 function drawPlayhead() {
   noStroke();
   fill(0,255,0);
-  rect(map(soundfile.currentTime(), 0, soundfile.duration(), 0, width), 0, 5, height);
+  rect(map(soundFile.currentTime(), 0, soundFile.duration(), 0, width), 0, 5, height);
 }

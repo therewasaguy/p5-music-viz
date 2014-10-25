@@ -3,28 +3,28 @@
   Draw a 1024 particles system that represents bins of the FFT frequency spectrum. 
  */
 
-var mic, soundfile; // input sources, press T to toggleInput()
-
+var mic, soundFile; // input sources, press T to toggleInput()
 
 var fft;
 var smoothing = 0.8; // play with this, between 0 and .99
 var binCount = 1024; // size of resulting FFT array. Must be a power of 2 between 16 an 1024
-
 var particles =  new Array(binCount);
 
+// preload ensures that the sound is loaded and ready to play in time for setup
 function preload() {
-  soundfile = loadSound('../../music/Broke_For_Free_-_01_-_As_Colorful_As_Ever.mp3')
+  soundFile = loadSound('../../music/Broke_For_Free_-_01_-_As_Colorful_As_Ever.mp3')
 }
 
 function setup() {
   c = createCanvas(windowWidth, windowHeight);
   noStroke();
 
-  soundfile.play();
+  soundFile.play();
   mic = new p5.AudioIn();
 
   // initialize the FFT, plug in our variables for smoothing and binCount
   fft = new p5.FFT(smoothing, binCount);
+  fft.setInput(soundFile);
 
   // instantiate the particles.
   for (var i = 0; i < particles.length; i++) {
@@ -38,7 +38,6 @@ function setup() {
 }
 
 function draw() {
-  // r, g, b, alpha
   background(0, 0, 0, 100);
 
   // returns an array with [binCount] amplitude readings from lowest to highest frequencies
@@ -108,13 +107,13 @@ function keyPressed() {
 // To prevent feedback, mic doesnt send its output.
 // So we need to tell fft to listen to the mic, and then switch back.
 function toggleInput() {
-  if (soundfile.isPlaying() ) {
-    soundfile.pause();
+  if (soundFile.isPlaying() ) {
+    soundFile.pause();
     mic.start();
     fft.setInput(mic);
   } else {
-    soundfile.play();
+    soundFile.play();
     mic.stop();
-    fft.setInput(soundfile);
+    fft.setInput(soundFile);
   }
 }

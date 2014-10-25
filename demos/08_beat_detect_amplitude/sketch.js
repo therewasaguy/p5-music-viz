@@ -2,7 +2,7 @@
   The detectBeat() function decides whether we have a beat or not
   based on amplitude level and Beat Detect Variables.
  */
-var soundfile;
+var soundFile;
 var amplitude;
 var particles = [];
 var backgroundColor;
@@ -28,7 +28,7 @@ var framesSinceLastbeat = 0; // once this equals beatHoldFrames, beatCutoff star
 
 
 function preload() {
-  soundfile = loadSound('../../music/YACHT_-_06_-_Summer_Song_Instrumental.mp3');
+  soundFile = loadSound('../../music/YACHT_-_06_-_Summer_Song_Instrumental.mp3');
 }
 
 function setup() {
@@ -36,7 +36,7 @@ function setup() {
   noStroke();
 
   amplitude = new p5.Amplitude();
-  soundfile.play();
+  soundFile.play();
 
   // make a single particle.
   particles.push( new Particle() );

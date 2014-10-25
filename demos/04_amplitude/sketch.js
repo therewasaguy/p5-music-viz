@@ -1,28 +1,28 @@
 /*
-  getLevel() from the p5.Amplitude object and map it to the ellipse size
+  getLevel() from the p5.Amplitude object and map it to the ellipse position.
+
+  Press "T" to toggle between a sound file and audio input (mic).
  */
 
-var sound;
+var mic, soundFile;
 
 var amplitude;
-
-function preload() {
-  sound = loadSound('../../music/Broke_For_Free_-_01_-_As_Colorful_As_Ever.mp3')
-}
 
 function setup() {
   c = createCanvas(windowWidth, windowHeight);
   background(0);
+  fill(255);
+  noStroke();
 
-  sound.play();
+  mic = new p5.AudioIn();
+  mic.start();
 
-  // create a p5.Amplitude object. This will listen to all output and measure the level
+  // load the sound, but don't play it yet
+  soundFile = loadSound('../../music/Broke_For_Free_-_01_-_As_Colorful_As_Ever.mp3')
+
   amplitude = new p5.Amplitude();
-  
-  // amplitude options:  
-  amplitude.normalize = true;
-  amplitude.smooth(0.01);
-
+  amplitude.setInput(mic);
+  // amplitude.smooth(0.8); // <-- try this!
 }
 
 function draw() {
@@ -30,12 +30,43 @@ function draw() {
 
   var level = amplitude.getLevel();
 
-  fill(255);
-  ellipse(width/2, height/2, level*500, level*500);
+  text('Amplitude: ' + level, 20, 20);
+  var ellipseHeight = map(level, 0, 0.5, height, 0);
+  ellipse(width/2, ellipseHeight, 100, 100);
 }
 
-// helper methods
+
+
+// ================
+// Helper Functions
+// ================
+
+// resize canvas on windowResized
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   background(0);
+}
+
+// T stands for toggleInput().
+// note: in p5, keyPressed is not case sensitive. keyTyped is
+function keyPressed() {
+  if (key == 'T') {
+    toggleInput();
+  }
+}
+
+/*
+  Toggle input and change which
+  source is feeding the p5.Amplitude.
+ */
+function toggleInput() {
+  if (soundFile.isPlaying() ) {
+    soundFile.pause();
+    mic.start();
+    amplitude.setInput(mic);
+  } else {
+    soundFile.play();
+    mic.stop();
+    amplitude.setInput(soundFile);
+  }
 }

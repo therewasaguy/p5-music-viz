@@ -1,5 +1,5 @@
-var mic, osc, soundfile;
-var currentSource = 'soundfile';
+var mic, osc, soundFile;
+var currentSource = 'soundFile';
 
 var fft;
 var binCount = 1024;
@@ -7,18 +7,18 @@ var bins = new Array(binCount);
 
 
 function preload() {
-  soundfile = loadSound('../../music/Broke_For_Free_-_01_-_As_Colorful_As_Ever.mp3')
+  soundFile = loadSound('../../music/Broke_For_Free_-_01_-_As_Colorful_As_Ever.mp3')
 }
 
 function setup() {
   c = createCanvas(windowWidth, windowHeight);
   noStroke();
-  makeDropZone(c, soundfile)
+  makeDropZone(c, soundFile)
 
   // Hue Saturation Brightness
   colorMode(HSB);
 
-  soundfile.play();
+  soundFile.play();
   mic = new p5.AudioIn();
   osc = new p5.Oscillator();
   osc.amp(0.5);
@@ -61,20 +61,21 @@ function labelStuff() {
   text('~'+selectedBin.freq + 'Hz (bin #' + selectedBin.index+')', mouseX, mouseY );
   text('Energy: ' + selectedBin.value, mouseX, mouseY + 20);
 
-  if (soundfile.isPlaying()) {
-    text('Current Time: ' + soundfile.currentTime().toFixed(3), width-300, 40);
+  if (soundFile.isPlaying()) {
+    text('Current Time: ' + soundFile.currentTime().toFixed(3), width-300, 40);
   }
 
   text('Current Source: ' + currentSource, width-300, 20);
 }
 
 
-function makeDropZone(c, soundfile) {
+function makeDropZone(c, soundFile) {
   var dropZone = new AudioDropZone(c);
+  console.log(dropZone);
   dropZone.onTransfer = function(buf) {
-    soundfile.buffer = buf;
-    soundfile.stop();
-    soundfile.play();
+    soundFile.buffer = buf;
+    soundFile.stop();
+    soundFile.play();
   };
 }
 
@@ -98,22 +99,22 @@ function toggleInput() {
   inputMode += 1;
   inputMode = inputMode % 6;
   switch (inputMode) {
-    case 0: // soundfile mode
-      soundfile.play();
+    case 0: // soundFile mode
+      soundFile.play();
       osc.stop();
-      fft.setInput(soundfile);
-      currentSource = 'soundfile';
+      fft.setInput(soundFile);
+      currentSource = 'soundFile';
       break;
     case 1: // mic mode
       mic.start();
-      soundfile.pause();
+      soundFile.pause();
       fft.setInput(mic);
       currentSource = 'mic';
       break;
     case 2: // sine mode
       osc.setType('sine');
       osc.start();
-      soundfile.pause();
+      soundFile.pause();
       mic.stop();
       fft.setInput(osc);
       currentSource = 'sine';
@@ -140,12 +141,14 @@ function toggleScale() {
 }
 
 function mouseMoved() {
-  for (var i = 0; i < bins.length; i++) {
-    if ( (bins[i].x + bins[i].width) <= mouseX && mouseX <= bins[i].x) {
-      bins[i].isTouching = true;
-    }
-    else {
-      bins[i].isTouching = false;
+  if (soundFile.isLoaded()) {
+    for (var i = 0; i < bins.length; i++) {
+      if ( (bins[i].x + bins[i].width) <= mouseX && mouseX <= bins[i].x) {
+        bins[i].isTouching = true;
+      }
+      else {
+        bins[i].isTouching = false;
+      }
     }
   }
 }

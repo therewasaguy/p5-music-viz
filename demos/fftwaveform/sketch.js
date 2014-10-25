@@ -1,10 +1,10 @@
 /**
  * DEMO: Draw the waveform of a sound as it plays using p5.FFT.waveform()
- * Press T to toggle input between soundfile, mic, and oscillator.
+ * Press T to toggle input between soundFile, mic, and oscillator.
  * Oscillator's frequency is mapped to mouse position
  */
 
-var soundfile, mic, osc;
+var soundFile, mic, osc;
 
 var fft;
 var fftBands = 1024;
@@ -25,11 +25,13 @@ function setup() {
   osc = new p5.Oscillator();
   osc.amp(0.5);
   osc.freq(10);
-  // we can load it here since we'll start with mic as input
-  soundfile = loadSound('../../music/Broke_For_Free_-_01_-_As_Colorful_As_Ever.mp3');
+
 
   mic.start();
   fft.setInput(mic);
+
+  // load the soundfile in setup, but we won't play it until user hits 'T'
+  soundFile = loadSound('../../music/Broke_For_Free_-_01_-_As_Colorful_As_Ever.mp3');
 }
 
 function draw() {
@@ -68,22 +70,22 @@ function toggleInput() {
   inputMode += 1;
   inputMode = inputMode % 6;
   switch (inputMode) {
-    case 0: // soundfile mode
-      soundfile.play();
+    case 0: // soundFile mode
+      soundFile.play();
       osc.stop();
-      fft.setInput(soundfile);
-      currentSource = 'soundfile';
+      fft.setInput(soundFile);
+      currentSource = 'soundFile';
       break;
     case 1: // mic mode
       mic.start();
-      soundfile.pause();
+      soundFile.pause();
       fft.setInput(mic);
       currentSource = 'mic';
       break;
     case 2: // sine mode
       osc.setType('sine');
       osc.start();
-      soundfile.pause();
+      soundFile.pause();
       mic.stop();
       fft.setInput(osc);
       currentSource = 'sine';
