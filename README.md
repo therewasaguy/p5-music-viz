@@ -57,11 +57,17 @@ A few more complex p5 examples:
 
 
 ## Demos:
-### [FFT Spectrum Drag 'n Drop multi-tool](http://therewasaguy.github.io/p5-music-viz/demos/fftspectrum/) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/fftspectrum)
+### [Hello Amplitude](http://therewasaguy.github.io/p5-music-viz/04_amplitude) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/04_amplitude/sketch.js)
 
-### [Beat Detection](http://therewasaguy.github.io/p5-music-viz/demos/08_beat_detect_amplitude) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/08_beat_detect_amplitude/sketch.js)
+### [Draw Peaks w/ Playhead](http://therewasaguy.github.io/p5-music-viz/demos/drawpeaks_with_playhead) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/drawpeaks_with_playhead/sketch.js)
+
+### [FFT Waveform (Oscilloscope)](http://therewasaguy.github.io/p5-music-viz/demos/fftwaveform) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/fftwaveform/sketch.js)
+
+### [FFT Spectrum Drag, Drop 'n Analyze](http://therewasaguy.github.io/p5-music-viz/demos/fftspectrum/) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/fftspectrum/sketch.js)
 
 ### [FFT Particle System](http://therewasaguy.github.io/p5-music-viz/demos/07_fft) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/07_fft/sketch.js)
+
+### [Beat Detection](http://therewasaguy.github.io/p5-music-viz/demos/08_beat_detect_amplitude) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/08_beat_detect_amplitude/sketch.js)
 
 ----------
 Music included in the demos/repo:
