@@ -46,7 +46,7 @@ A few exciting examples:
 - To ensure file is loaded by the time you want to play it, ```loadsound()``` during p5's ```preload()```, or with a callback.
 - To ensure browser compatability, you can provide both mp3 and ogg options.
    + Convert to ogg [here](http://media.io/), and specify multiple filetypes with the [soundFormats()](http://p5js.org/reference/#/p5.sound/soundFormats) method.
-- ```.getPeaks()``` - an array of peak amplitudes over the course of the entire sound file. ([demo](http://therewasaguy.github.io/p5-music-viz/demos/drawpeaks_with_playhead/) | [source](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/drawpeaks_with_playhead/sketch.js)
+- ```.getPeaks()``` - an array of peak amplitudes over the course of the entire sound file. [demo](http://therewasaguy.github.io/p5-music-viz/demos/drawpeaks_with_playhead/) | [source](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/drawpeaks_with_playhead/sketch.js)
 
 **p5.Amplitude** - [documentation](http://p5js.org/reference/#/p5.Amplitude) | [source code](https://github.com/therewasaguy/p5.sound/blob/master/src/amplitude.js)
 *Analyze overall volume level*
@@ -56,7 +56,7 @@ A few exciting examples:
 **p5.FFT** - [documentation](http://p5js.org/reference/#/p5.FFT) | [source code](https://github.com/therewasaguy/p5.sound/blob/master/src/fft.js)
 *Get an array of amplitude levels across the frequency spectrum, or the time domain*
 * ```.analyze()``` returns amplitude readings from 0-255 across the frequency spectrum
-* ```.waveform()``` returns amplitude readings across a brief snapshot of time ([demo](http://therewasaguy.github.io/p5-music-viz/demos/fftwaveform)) | [source](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/fftwaveform/sketch.js)
+* ```.waveform()``` returns amplitude readings across a brief snapshot of time. [demo](http://therewasaguy.github.io/p5-music-viz/demos/fftwaveform)) | [source](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/fftwaveform/sketch.js)
 
 ## Demos:
 ### [FFT Spectrum Drag 'n Drop multi-tool](http://therewasaguy.github.io/p5-music-viz/demos/fftspectrum/) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/fftspectrum)
