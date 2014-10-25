@@ -15,10 +15,10 @@ var waveform = [];
 function setup() {
   createCanvas(fftBands, 500);
   fill(255, 40, 255);
-  stroke(255);
-  strokeWeight(10);
+  stroke(240);
+  strokeWeight(4);
 
-  fft = new p5.FFT(.99, fftBands);
+  fft = new p5.FFT(0, fftBands);
 
   // set up other inputs we may use by toggling input
   mic = new p5.AudioIn();
@@ -35,7 +35,7 @@ function setup() {
 }
 
 function draw() {
-  background(30);
+  background(30, 30, 30, 220);
 
   /** 
    * Analyze the sound as a waveform (amplitude over time)

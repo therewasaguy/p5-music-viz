@@ -1,5 +1,5 @@
 var mic, osc, soundFile;
-var currentSource = 'soundFile';
+var currentSource = 'Broke For Free - As Colorful As Ever';
 
 var fft;
 var binCount = 1024;
@@ -23,7 +23,7 @@ function setup() {
   osc = new p5.Oscillator();
   osc.amp(0.5);
 
-  var smoothing = 0.4;
+  var smoothing = 0.6;
   fft = new p5.FFT(smoothing, binCount);
   for (var i = 0; i <= binCount; i++) {
     bins[i] = new Bin(i, binCount);
@@ -62,10 +62,13 @@ function labelStuff() {
   text('Energy: ' + selectedBin.value, mouseX, mouseY + 20);
 
   if (soundFile.isPlaying()) {
-    text('Current Time: ' + soundFile.currentTime().toFixed(3), width-300, 40);
+    text('Current Time: ' + soundFile.currentTime().toFixed(3), width/2, 20);
   }
 
-  text('Current Source: ' + currentSource, width-300, 20);
+  text('Current Source: ' + currentSource, width/2, 40);
+  textSize(14);
+  text('Press T to toggle source', width/2, 60);
+  text('Logarithmic view: ' + logView +' (L to toggle)', width/2, 80);
 }
 
 
@@ -103,13 +106,13 @@ function toggleInput() {
       soundFile.play();
       osc.stop();
       fft.setInput(soundFile);
-      currentSource = 'soundFile';
+      currentSource = soundFile.url.split('/').pop();
       break;
     case 1: // mic mode
       mic.start();
       soundFile.pause();
       fft.setInput(mic);
-      currentSource = 'mic';
+      currentSource = 'Mic';
       break;
     case 2: // sine mode
       osc.setType('sine');
@@ -117,19 +120,19 @@ function toggleInput() {
       soundFile.pause();
       mic.stop();
       fft.setInput(osc);
-      currentSource = 'sine';
+      currentSource = 'Sine Wave';
       break;
     case 3: // square mode
       osc.setType('triangle');
-      currentSource = 'triangle';
+      currentSource = 'Triangle Wave';
       break;
     case 4: // square mode
       osc.setType('square');
-      currentSource = 'square';
+      currentSource = 'Square Wave';
       break;
     case 5: // square mode
       osc.setType('sawtooth');
-      currentSource = 'sawtooth';
+      currentSource = 'Sawtooth Wave';
       break;
   }
 }
