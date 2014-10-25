@@ -57,7 +57,7 @@ A few more complex p5 examples:
 
 
 ## Demos:
-### [Hello Amplitude](http://therewasaguy.github.io/p5-music-viz/04_amplitude) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/04_amplitude/sketch.js)
+### [Hello Amplitude](http://therewasaguy.github.io/p5-music-viz/demos/04_amplitude) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/04_amplitude/sketch.js)
 
 ### [Draw Peaks w/ Playhead](http://therewasaguy.github.io/p5-music-viz/demos/drawpeaks_with_playhead) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/drawpeaks_with_playhead/sketch.js)
 
