@@ -1,8 +1,8 @@
 # Visualizing Music with p5.js
 
-Music can trigger our emotions, and evoke the full range of our senses. Take the sinesthetic artist Kandinsky, who associated musical qualities with particular colors and shapes. A computer processes music differently, as a stream of numbers. As data. How can we map this data onto meaningul visuals that enhance our experience of music?
+Music can trigger our emotions, and evoke the full range of our senses. Take the sinesthetic artist Kandinsky, who associated musical qualities with particular colors and shapes. A computer processes music differently, as a stream of numbers. As data. How can we map this data onto meaningful visuals that enhance our experience of music?
 
-This session is for anyone who would like to explore sound data, music, and visuals. We'll demonstrate types of data we can get from digital signal processing using interactive "sketches" in p5.js. We'll likely focus on Amplitude, Frequency Spectrum, and maybe some DIY Beat Detection. We'll play with various approaches for mapping sound data onto meaningul visuals, and collaborate in the creation of online music visualizations.
+This session is for anyone who would like to explore sound data, music, and visuals. We'll demonstrate types of data we can get from digital signal processing using interactive sketches in p5.js. We'll likely focus on Amplitude, Frequency Spectrum, and maybe some DIY Beat Detection. We'll play with various approaches for mapping sound data onto meaningul visuals, and collaborate in the creation of online music visualizations.
 
 ### Libraries
 Participants may use whatever tools they wish, but the demos in this repo use the following libraries:
@@ -27,7 +27,7 @@ Participants may use whatever tools they wish, but the demos in this repo use th
   * [p5 IDE](http://p5js.org/download/)
 
 ### >> [Getting Started with p5](http://p5js.org/get-started/#your-first-sketch)
-A few exciting examples:
+A few more complex p5 examples:
 * [Forces](http://p5js.org/learn/examples/Simulate_Forces.php)
 * [Particle System](http://p5js.org/learn/examples/Simulate_Particle_System.php)
 * [Perlin Noise](http://p5js.org/learn/examples/Math_Noise_Wave.php)
@@ -36,7 +36,7 @@ A few exciting examples:
 
 ---
 
-### p5.sound Highlights for Music Viz:
+### Some p5.sound Classes That We'll Use For Music Visualizations:
 
 **p5.AudioIn** - [documentation](http://p5js.org/reference/#/p5.AudioIn) | [source code](https://github.com/therewasaguy/p5.sound/blob/master/src/audioin.js)
 *microphone!*
