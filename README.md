@@ -87,6 +87,7 @@ A few more complex p5 examples:
 
 ### Music Visualization Inspiration...
 * [Optical Poem, Oskar Fischinger's 1938 visualization of Franz Liszt's "2nd Hungarian Rhapsody"](https://www.youtube.com/watch?v=they7m6YePo)
+* [Beach Bells](https://vimeo.com/69633166)
 * [Kandinsky's Color Theory](http://lettersfrommunich.wikispaces.com/Kandinsky's+Color+Theory)
 * [Notations21](http://www.notations21.net/)
 * [Patatap](http://www.patatap.com/)
