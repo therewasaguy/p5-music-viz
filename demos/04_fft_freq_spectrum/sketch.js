@@ -71,10 +71,12 @@ function labelStuff() {
   text('Logarithmic view: ' + logView +' (L to toggle)', width/2, 80);
 }
 
-
+/**
+ *  uses dragfile.js to make the entire canvas a "dropzone"
+ *  for dragin'n'dropin' audio files
+ */
 function makeDropZone(c, soundFile) {
   var dropZone = new AudioDropZone(c);
-  console.log(dropZone);
   dropZone.onTransfer = function(buf) {
     soundFile.buffer = buf;
     soundFile.stop();
@@ -140,7 +142,6 @@ function toggleInput() {
 var logView = true;
 function toggleScale() {
   logView = !logView;
-  console.log('logView');
 }
 
 function mouseMoved() {
