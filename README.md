@@ -67,7 +67,7 @@ A few more complex p5 examples:
 
 ### [FFT Particle System](http://therewasaguy.github.io/p5-music-viz/demos/05_fft_particle_system) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/05_fft_particle_system/sketch.js)
 
-### [Particle System Color Map](http://therewasaguy.github.io/p5-music-viz/demos/05b_fft_particle_system_color/) [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/05b_fft_particle_system_color//sketch.js) by @michellechandra
+### [Particle System Color Map](http://therewasaguy.github.io/p5-music-viz/demos/05b_fft_particle_system_color/)  | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/05b_fft_particle_system_color//sketch.js) by @[michellechandra](https://github.com/michellechandra)
 
 ### [Beat Detection](http://therewasaguy.github.io/p5-music-viz/demos/06_beat_detect_amplitude) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/06_beat_detect_amplitude/sketch.js)
 
