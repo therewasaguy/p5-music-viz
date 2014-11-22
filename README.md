@@ -61,11 +61,13 @@ A few more complex p5 examples:
 
 ### [Draw Peaks w/ Playhead](http://therewasaguy.github.io/p5-music-viz/demos/02_draw_peaks_and_playhead) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/02_draw_peaks_and_playhead/sketch.js)
 
-### [FFT Waveform (Oscilloscope)](http://therewasaguy.github.io/p5-music-viz/demos/03_fft_waveform) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/03_fft_waveform/sketch.js)
+### [Waveform (Oscilloscope)](http://therewasaguy.github.io/p5-music-viz/demos/03_fft_waveform) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/03_fft_waveform/sketch.js)
 
 ### [FFT Spectrum Drag, Drop 'n Analyze](http://therewasaguy.github.io/p5-music-viz/demos/04_fft_freq_spectrum/) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/04_fft_freq_spectrum/sketch.js)
 
 ### [FFT Particle System](http://therewasaguy.github.io/p5-music-viz/demos/05_fft_particle_system) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/05_fft_particle_system/sketch.js)
+
+### [Particle System Color Map](http://therewasaguy.github.io/p5-music-viz/demos/05b_fft_particle_system_color/) [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/05b_fft_particle_system_color//sketch.js) by @michellechandra
 
 ### [Beat Detection](http://therewasaguy.github.io/p5-music-viz/demos/06_beat_detect_amplitude) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/06_beat_detect_amplitude/sketch.js)
 
