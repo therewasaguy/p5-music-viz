@@ -98,3 +98,4 @@ A few more complex p5 examples:
 * [Oscillator Art](http://oscillator-art.herokuapp.com)
 * [Music Makes You Travel](http://www.openprocessing.org/sketch/138877)
 * [George & Jonathan](http://www.georgeandjonathan.com/)
+* [Ripple](http://wemakeawesomesh.it/musicviz/ripple/)
