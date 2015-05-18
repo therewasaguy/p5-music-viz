@@ -1,5 +1,3 @@
-
-
 /*
   Store an array of amplitude values and draw them over time.
 
@@ -14,7 +12,7 @@ var mic, soundFile;
 
 var amplitude;
 
-var prevLevels = new Array(100);
+var prevLevels = new Array(300);
 
 
 function setup() {
@@ -22,6 +20,7 @@ function setup() {
   background(0);
   fill(255);
   noStroke();
+
   rectMode(CENTER);
 
   mic = new p5.AudioIn();
@@ -32,13 +31,17 @@ function setup() {
 
   amplitude = new p5.Amplitude();
   amplitude.setInput(mic);
-  amplitude.smooth(0.8);
+  amplitude.smooth(0.6);
 }
 
 function draw() {
-  background(0);
+  background(0,0,0,10);
 
   var level = amplitude.getLevel();
+  var w = 5;
+  var minH = 2;
+  var roundness = 2;
+
 
   // add new level to end of array
   prevLevels.push(level);
@@ -46,16 +49,15 @@ function draw() {
   // remove first item in array
   prevLevels.splice(1, 1);
 
-  var w = 5;
-
+  // loop through all the previous levels
   for (var i = 0; i < prevLevels.length; i++) {
     var x = map(i, prevLevels.length, 0, width/2, width);
-    var h = map(prevLevels[i], 0, 0.5, 10, height/2);
+    var h = map(prevLevels[i], 0, 0.5, minH, height);
 
     // fill
-    fill(255,255,255, map(i, 0, prevLevels.length, 0, 255));
-    rect(x, height/2, w, h);
-    rect(width - x, height/2, w, h);
+    fill(255,255,255, map(i, 0, prevLevels.length, 0, 200));
+    rect(x, height/2, w, h, roundness, roundness, roundness, roundness);
+    rect(width - x, height/2, w, h, roundness, roundness, roundness, roundness);
 
   }
 
