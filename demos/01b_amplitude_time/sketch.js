@@ -54,8 +54,8 @@ function draw() {
 
     // fill
     fill(255,255,255, map(i, 0, prevLevels.length, 0, 255));
-    // rect(x, height/2, w, h);
-    // rect(width - x, height/2, w, h);
+    rect(x, height/2, w, h);
+    rect(width - x, height/2, w, h);
 
   }
 
