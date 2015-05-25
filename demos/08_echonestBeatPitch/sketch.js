@@ -21,7 +21,10 @@ var notes = new Array(12);
 
 var audioEl;
 
-var beatDiameter = 400;
+var maxDiameter;
+var rotation = 0;
+var rotationInc;
+var rotations;
 
 function setup() {
   cnv = createCanvas(windowWidth, windowHeight);
@@ -29,12 +32,18 @@ function setup() {
   noStroke();
   colorMode(HSB, 255);
 
+  maxDiameter = width;
+  translate(width/2, height/2);
+
+  rotations = [0, PI/60, -PI/60, PI/2, -PI/2, PI/6, -PI/3, PI/5, -PI/32];
+  rotationInc = rotations[0];
+
   // draw keys
   for (var i = 0; i < notes.length; i++) {
     var diameter = width/8;
     var angle = TWO_PI/notes.length;
     var hue = round( map(i, 0, notes.length, 0, 255) );
-    var c = color(hue, 255, 255, 255);
+    var c = color(hue, 250, 200, 255);
     notes[i] = new Arc(i, diameter, angle, c);
     notes[i].draw();
   }
@@ -44,7 +53,9 @@ function setup() {
 }
 
 function draw() {
-  background(0);
+  background(0, 0, 0, 20);
+
+  rotate(rotation += rotationInc);
 
   for (var i = 0; i < notes.length; i++) {
     notes[i].draw(); 
@@ -52,21 +63,26 @@ function draw() {
 
 }
 
-
+// callback from loadJSON
 function gotData(data) {
   echonestAnalysis = data;
 
   scheduleSegments(data.segments);
 
   scheduleBeats(data.beats);
+
+  scheduleSections(data.bars);
+
+  audioEl.play();
 }
 
-///////////
+
+/////////// schedule stuff based on json data
 function scheduleSegments(segments) {
 
   for (var i = 0; i < segments.length; i++) {
     var seg = segments[i];
-    if (seg.confidence > 0.5) {
+    if (seg.confidence > 0.01) {
       var startTime = seg.start;
       var endTime = seg.start + seg.duration;
       var pitches = seg.pitches;
@@ -87,11 +103,19 @@ function scheduleBeats(beats) {
   }
 }
 
+function scheduleSections(sections) {
+  for (var i = 0; i < sections.length; i++) {
+    var section = sections[i];
+    var startTime = section.start;
+    audioEl.setTimeline(changeRotation, startTime, i);
+  }
+}
 
-/////////
+
+///////// callbacks from timeline events
 function triggerNote(time, pitches) {
   for (var i = 0; i < notes.length; i++) {
-    if (pitches[i] > 0.5) {
+    if (pitches[i] > 0.8) {
       notes[i].triggerNote(pitches[i]);
     }
   }
@@ -109,12 +133,14 @@ function triggerBeat() {
   }
 }
 
-
+function changeRotation(time, index) {
+  rotationInc = rotations[index % rotations.length];
+}
 
 var Arc = function(index, diameter, angle, c) {
   this.index = index;
   this.diameter = diameter;
-  this.extraRad = 0;
+  this.extraRad = 1;
 
   this.angle = angle;
   this.color = c;
@@ -124,7 +150,7 @@ var Arc = function(index, diameter, angle, c) {
 
 Arc.prototype.triggerNote = function(val) {
   this.alpha = 255 * val;
-  this.decayRate = 1;
+  this.decayRate = 1 + val/25;
   this.color.rgba[3] = this.alpha;
 }
 
@@ -133,17 +159,22 @@ Arc.prototype.releaseNote = function() {
 }
 
 Arc.prototype.triggerBeat = function() {
-  this.extraRad = beatDiameter;
+  this.extraRad = 100;
+  this.radRate = 1.3;
 }
 
 Arc.prototype.draw = function() {
   this.alpha *= this.decayRate;
-  this.extraRad *= this.decayRate;
+  this.extraRad *= this.radRate * this.decayRate;
+  this.extraRad = constrain(this.extraRad, 0.01, maxDiameter);
+
+  this.radRate *= 0.98;
+  this.radRate = constrain(this.radRate, 0.9, 1.5);
 
   this.color.rgba[3] = this.alpha;
   fill(this.color);
 
   var d = this.diameter + this.extraRad;
 
-  arc(width/2, height/2, d, d, this.index*this.angle, (this.index*this.angle) + this.angle);
+  arc(0, 0, d, d, this.index*this.angle, (this.index*this.angle) + this.angle);
 }
