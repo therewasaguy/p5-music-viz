@@ -1,57 +1,63 @@
 /**
  *  Display lyrics as a song plays.
  *
- *  This example uses the p5.dom library to create an HTML5 Audio Element.
+ *  Uses the p5.dom library to create an HTML5 Audio Element, and schedules
+ *  events using audioEl.setTimeline(callback, time, value)
  *
- *  It also uses a JavaScript to JSON parser https://github.com/justan/lrc
+ *  Lyrics are parsed from an LRC file, which is used for karaoke.
+ *  Here is a quick way to generate your own LRC file for any song: http://lrcgenerator.com/
  *  
- *  This is a quick way to generate an LRC file http://lrcgenerator.com/
+ *  First we loadStrings to read the LRC file, then convert the Strings to JSON using this
+ *  LRC to JSON converter:
+ *  https://github.com/justan/lrc (MIT License)
+ *
+ *  Music "Twit JournalisT" by Alaclair Ensemble (alaclair.com)
+ *  Creative Commons Attribution-Share-Alike
  */
 
 var audioEl;
-
-var lrcStrings;
-var lrc;
-
 var currentLyric = '';
 var lyricDiv;
-
-var bgColor = 255;
+var lrcStrings;
 
 function preload() {
+
+  // loadStrings returns an array of strings.
   lrcStrings = loadStrings('../../music/Alaclair_Ensemble_-_14_-_Twit_JournalisT.lrc')
 }
 
 function setup() {
-  var c = createCanvas(0, 0);
-
-  colorMode(HSB, 255);
+  noCanvas();
 
   audioEl = createAudio('../../music/Alaclair_Ensemble_-_14_-_Twit_JournalisT.mp3');
   audioEl.showControls();
 
-  // join the lyrics
+  // turn the array of strings into one big string, separated by line breaks.
   lrcStrings = lrcStrings.join('\n');
 
-  lrc = new Lrc(lrcStrings, outputHandler);
+  // lrc.js library converts Strings to JSON
+  var lrcJSON = new Lrc(lrcStrings);
 
-  for (var i = 0; i < lrc.lines.length; i++) {
-    var time = lrc.lines[i].time;
-    var lyric = lrc.lines[i].txt.valueOf();
+  // iterate through each line of the LRC file to get a Time and Lyric
+  for (var i = 0; i < lrcJSON.lines.length; i++) {
+    var time = lrcJSON.lines[i].time;
+    var lyric = lrcJSON.lines[i].txt.valueOf();
 
-    audioEl.setTimeline(outputHandler, time, lyric);
+    // schedule events to trigger at specific times during audioEl playback
+    audioEl.setTimeline(showLyric, time, lyric);
   }
 
-  audioEl.setTimeline(changeBackground, 1.5);
-
+  // create a <div> to hold the lyrics and give it some style
   lyricDiv = createDiv('');
   lyricDiv.style('font-size', '48px')
   lyricDiv.style('padding', '10px')
   lyricDiv.style('margin', 'auto')
-
 }
 
-function outputHandler(time, lyric) {
+
+// callback specified by setTimeline(callback, time, value).
+function showLyric(time, value) {
+  var lyric = value;
 
   // if lyric is empty, clear the lyricDiv
   if (lyric === '') {
@@ -67,8 +73,4 @@ function outputHandler(time, lyric) {
 
   // append it to the lyricDiv
   lyricDiv.child(newLyric);
-}
-
-function changeBackground() {
-  bgColor = 0;
 }
