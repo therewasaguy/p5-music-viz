@@ -80,9 +80,17 @@ A few more complex p5 examples:
 
 ### [Beat Detection](http://therewasaguy.github.io/p5-music-viz/demos/06_beat_detect_amplitude) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/06_beat_detect_amplitude/sketch.js)
 
+
+### [Display Lyrics](http://therewasaguy.github.io/p5-music-viz/demos/07_lyrics) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/07_lyrics/sketch.js)
+
+### [Pre-rendered Analysis (via Echo Nest)](http://therewasaguy.github.io/p5-music-viz/demos/08_echonestBeatPitch) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/08_echonestBeatPitch/sketch.js)
+
 ***Music included in the demos/repo:***
 - [Yacht](http://teamyacht.com/) - Summer Song (Instrumental) - [See Mystery Lights Instrumentals](http://freemusicarchive.org/music/YACHT/See_Mystery_Lights_Instrumentals/) [Creative Commons BY-NC-SA](http://creativecommons.org/licenses/by-nc-sa/3.0/us/)
 - [Broke For Free](http://brokeforfree.bandcamp.com/) - As Colorful As Ever - [Layers](http://freemusicarchive.org/music/Broke_For_Free/Layers/) - [Creative Commons BY-NC](http://creativecommons.org/licenses/by-nc/3.0/)
+- [Alaclair Ensemble](http://alaclair.com/) - Twit Journalist - [This Is America](http://freemusicarchive.org/music/Alaclair_Ensemble/This_Is_America/) - [Creative Commons BY-SA](http://creativecommons.org/licenses/by-sa/3.0/)
+- [Peter Johnson](https://freemusicarchive.org/music/Peter_Johnston/) - La ere gymnopedie (Erik Satie) - [Best of Breitband Vol1](https://freemusicarchive.org/music/Various_Artists_Breitband/Best_Of_Breitband_Vol_1/)
+
 - For more Creative Commons resources, check out the [Free Music Archive's Guide to Online Audio Resources](https://docs.google.com/document/d/1mbF5vgWp9duoGMxNl-Y8tEyWbFhkgw0JBK8F7A2cg68/edit?usp=sharing)
 
 
