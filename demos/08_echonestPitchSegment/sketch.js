@@ -23,20 +23,24 @@ var audioEl;
 
 var maxDiameter;
 var rotation = 0;
-var rotationInc;
 var rotations;
+var rotationIncrement;
+
+
+var bgColor;
 
 function setup() {
   cnv = createCanvas(windowWidth, windowHeight);
-  background(0);
   noStroke();
+  bgColor = color(253,254,228, 20);
+
   colorMode(HSB, 255);
 
   maxDiameter = width;
   translate(width/2, height/2);
 
-  rotations = [0, PI/60, -PI/60, PI/2, -PI/2, PI/6, -PI/3, PI/5, -PI/32];
-  rotationInc = rotations[0];
+  rotations = [0, PI/60, -PI/60, PI/32, -PI/32, PI/18, PI/6, -PI/18, -PI/6];
+  rotationIncrement = rotations[0];
 
   // draw keys
   for (var i = 0; i < notes.length; i++) {
@@ -48,17 +52,14 @@ function setup() {
     notes[i].draw();
   }
 
-  // loadJSON('../../music/Peter_Johnston_-_La_ere_gymnopedie.json', gotData);
-  // audioEl = createAudio('../../music/Peter_Johnston_-_La_ere_gymnopedie.mp3');
-
-  loadJSON('../../music/Alaclair_Ensemble_-_Twit_JournalisT.json', gotData);
-  audioEl = createAudio('../../music/Alaclair_Ensemble_-_14_-_Twit_JournalisT.mp3');
+  loadJSON('../../music/Peter_Johnston_-_La_ere_gymnopedie.json', gotData);
+  audioEl = createAudio('../../music/Peter_Johnston_-_La_ere_gymnopedie.mp3');
 }
 
 function draw() {
-  background(0, 0, 0, 20);
+  background(bgColor);
 
-  rotate(rotation += rotationInc);
+  rotate(rotation += rotationIncrement);
 
   for (var i = 0; i < notes.length; i++) {
     notes[i].draw(); 
@@ -72,15 +73,14 @@ function gotData(data) {
 
   scheduleSegments(data.segments);
 
-  scheduleBeats(data.beats);
-
   scheduleSections(data.bars);
 
   audioEl.play();
 }
 
 
-/////////// schedule stuff based on json data
+// schedule timeline events based on json data
+
 function scheduleSegments(segments) {
 
   for (var i = 0; i < segments.length; i++) {
@@ -97,29 +97,24 @@ function scheduleSegments(segments) {
   }
 }
 
-function scheduleBeats(beats) {
-  for (var i = 0; i < beats.length; i++) {
-    var beat = beats[i];
-    var startTime = beat.start;
-
-    audioEl.setTimeline(triggerBeat, startTime);
-  }
-}
-
 function scheduleSections(sections) {
   for (var i = 0; i < sections.length; i++) {
     var section = sections[i];
     var startTime = section.start;
+
     audioEl.setTimeline(changeRotation, startTime, i);
   }
 }
 
 
-///////// callbacks from timeline events
+
+// callbacks from timeline events
+
 function triggerNote(time, pitches) {
   for (var i = 0; i < notes.length; i++) {
     if (pitches[i] > 0.8) {
       notes[i].triggerNote(pitches[i]);
+      notes[i].triggerBeat();
     }
   }
 }
@@ -130,15 +125,12 @@ function releaseNote() {
   }
 }
 
-function triggerBeat() {
-  for (var i = 0; i < notes.length; i++) {
-    notes[i].triggerBeat();
-  }
+function changeRotation(time, index) {
+  rotationIncrement = rotations[index % rotations.length];
 }
 
-function changeRotation(time, index) {
-  rotationInc = rotations[index % rotations.length];
-}
+
+// Arc class
 
 var Arc = function(index, diameter, angle, c) {
   this.index = index;
