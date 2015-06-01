@@ -11,7 +11,7 @@ var soundFile;
 var peakCount = 500;
 
 function preload() {
-  soundFile = loadSound('../../music/sounds/snare-707.mp3');
+  soundFile = loadSound('../../music/sounds/Snare-707.mp3');
 }
 
 function setup() {
