@@ -90,8 +90,8 @@ function scheduleSegments(segments) {
       var endTime = seg.start + seg.duration;
       var pitches = seg.pitches;
 
-      audioEl.setCue(startTime, triggerNote, pitches);
-      audioEl.setCue(endTime, releaseNote);
+      audioEl.addCue(startTime, triggerNote, pitches);
+      audioEl.addCue(endTime, releaseNote);
 
     }
   }
@@ -102,7 +102,7 @@ function scheduleSections(sections) {
     var section = sections[i];
     var startTime = section.start;
 
-    audioEl.setCue(startTime, changeRotation, i);
+    audioEl.addCue(startTime, changeRotation, i);
   }
 }
 

@@ -2,7 +2,7 @@
  *  Display lyrics as a song plays.
  *
  *  Uses the p5.dom library to create an HTML5 Audio Element, and schedules
- *  events using audioEl.setCue(callback, time, value)
+ *  events using audioEl.addCue(callback, time, value)
  *
  *  Lyrics are parsed from an LRC file, which is used for karaoke.
  *  Here is a quick way to generate your own LRC file for any song: http://lrcgenerator.com/
@@ -44,7 +44,7 @@ function setup() {
     var lyric = lrcJSON.lines[i].txt.valueOf();
 
     // schedule events to trigger at specific times during audioEl playback
-    audioEl.setCue(time, showLyric, lyric);
+    audioEl.addCue(time, showLyric, lyric);
   }
 
   // create a <div> to hold the lyrics and give it some style
@@ -55,7 +55,7 @@ function setup() {
 }
 
 
-// callback specified by setCue(callback, time, value).
+// callback specified by addCue(callback, time, value).
 function showLyric(time, value) {
   var lyric = value;
 

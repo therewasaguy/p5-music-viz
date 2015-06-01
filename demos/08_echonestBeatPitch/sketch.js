@@ -90,8 +90,8 @@ function scheduleSegments(segments) {
       var endTime = seg.start + seg.duration;
       var pitches = seg.pitches;
 
-      audioEl.setCue(startTime, triggerNote, pitches);
-      audioEl.setCue(endTime, releaseNote);
+      audioEl.addCue(startTime, triggerNote, pitches);
+      audioEl.addCue(endTime, releaseNote);
 
     }
   }
@@ -102,7 +102,7 @@ function scheduleBeats(beats) {
     var beat = beats[i];
     var startTime = beat.start;
 
-    audioEl.setCue(startTime, triggerBeat);
+    audioEl.addCue(startTime, triggerBeat);
   }
 }
 
@@ -110,7 +110,7 @@ function scheduleSections(sections) {
   for (var i = 0; i < sections.length; i++) {
     var section = sections[i];
     var startTime = section.start;
-    audioEl.setCue(startTime, changeRotation, i);
+    audioEl.addCue(startTime, changeRotation, i);
   }
 }
 
