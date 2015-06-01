@@ -116,7 +116,7 @@ function scheduleSections(sections) {
 
 
 ///////// callbacks from timeline events
-function triggerNote(time, pitches) {
+function triggerNote(pitches) {
   for (var i = 0; i < notes.length; i++) {
     if (pitches[i] > 0.8) {
       notes[i].triggerNote(pitches[i]);

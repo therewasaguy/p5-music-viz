@@ -56,7 +56,7 @@ function setup() {
 
 
 // callback specified by addCue(callback, time, value).
-function showLyric(time, value) {
+function showLyric(value) {
   var lyric = value;
 
   // if lyric is empty, clear the lyricDiv
