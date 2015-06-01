@@ -2,8 +2,9 @@
 
 This session is for anyone who would like to explore music, visuals and creative coding for the web. We'll demonstrate types of data we can get from digital signal processing using interactive sketches in p5.js and the p5.sound library that builds upon the Web Audio API. 
 
-[Intro Slides](http://slides.com/jasonsigal/deck)
-[Signal Processing Slides](http://slides.com/jasonsigal/h)
+**[Intro Slides](http://slides.com/jasonsigal/deck)**
+
+**[Signal Processing Slides](http://slides.com/jasonsigal/h)**
 
 Part 1: Signal Processing
 - amplitude
