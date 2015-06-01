@@ -14,6 +14,51 @@ Part 2: Musical Timing
 - sync music to timestamped lyrics
 - pre-analyze file with the Echo Nest API, and visualize the result
 
+## Demos:
+### [Amplitude](http://therewasaguy.github.io/p5-music-viz/demos/01_hello_amplitude) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/01_hello_amplitude/sketch.js)
+
+## [Amplitude Logarithmic Map](http://therewasaguy.github.io/p5-music-viz/demos/01_hello_amplitude_logMap)
+
+## [Amplitude over time](http://therewasaguy.github.io/p5-music-viz/demos/01b_amplitude_time/)
+
+## [Threshold](http://therewasaguy.github.io/p5-music-viz/demos/01c_amplitude_threshold/)
+
+## [Simple Beat Detection](http://therewasaguy.github.io/p5-music-viz/demos/01d_beat_detect_amplitude/)
+
+## [Draw Full Waveform w/ Playhead](http://therewasaguy.github.io/p5-music-viz/demos/02_draw_peaks_and_playhead)
+
+### [Time Domain (Oscilloscope)](http://therewasaguy.github.io/p5-music-viz/demos/03_time_domain_oscilloscope) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/03_time_domain_oscilloscope/sketch.js)
+
+### [FFT Spectrum Drag, Drop 'n Analyze](http://therewasaguy.github.io/p5-music-viz/demos/04_fft_freq_spectrum/) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/04_fft_freq_spectrum/sketch.js)
+
+### [FFT Spectrograph](http://therewasaguy.github.io/p5-music-viz/demos/04b_fft_spectrograph/)
+
+### [FFT Scale by Neighbors](http://therewasaguy.github.io/p5-music-viz/demos/05_fft_scaleNeighbors/)
+
+### [FFT Scale by 1/3 Octave](http://therewasaguy.github.io/p5-music-viz/demos/05_fft_scaleOneThirdOctave/)
+
+### [FFT Unknown Pleasures](http://therewasaguy.github.io/p5-music-viz/demos/05_fft_scaleOneThirdOctave_UnknownPleasures/)
+
+### [FFT Particle System](http://therewasaguy.github.io/p5-music-viz/demos/05a_fft_particle_system) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/05a_fft_particle_system/sketch.js)
+
+
+### [FFT Peak Detect](http://therewasaguy.github.io/p5-music-viz/demos/05b_p5PeakDetect_simple) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/05b_p5PeakDetect_simple/sketch.js)
+
+### [Autocorrelate Time Domain](http://therewasaguy.06b_autoCorrelationCircle.io/p5-music-viz/demos/06a_autoCorrelation) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/05b_p5PeakDetect_simple/sketch.js)
+
+### [Autocorrelation Circle](http://therewasaguy.github.io/p5-music-viz/demos/06b_autoCorrelationCircle) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/06b_autoCorrelationCircle/sketch.js)
+
+### [Pitch Track](http://therewasaguy.github.io/p5-music-viz/demos/06c_autoCorrelation_PitchTrack) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/06c_autoCorrelation_PitchTrack/sketch.js)
+
+
+### [Display Lyrics](http://therewasaguy.github.io/p5-music-viz/demos/07_lyrics) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/07_lyrics/sketch.js)
+
+### [Pre-rendered Analysis (via Echo Nest - Beat + Pitch)](http://therewasaguy.github.io/p5-music-viz/demos/08_echonestBeatPitch) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/08_echonestBeatPitch/sketch.js)
+
+### [Pre-rendered Analysis (via Echo Nest) - Pitch Segment 1](http://therewasaguy.github.io/p5-music-viz/demos/08_echonestPitchSegment) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/08_echonestPitchSegment/sketch.js)
+
+---
+
 ### Libraries
 Participants may use whatever tools they wish, but the demos in this repo use the following libraries:
 
@@ -64,51 +109,6 @@ Participants may use whatever tools they wish, but the demos in this repo use th
 [**p5.FFT**](http://p5js.org/reference/#/p5.FFT) - *Analyze amplitude over time or frequency.* [documentation](http://p5js.org/reference/#/p5.FFT) | [source code](https://github.com/processing/p5.js-sound/blob/master/src/fft.js) 
 - ```.analyze()``` returns amplitude readings from 0-255 in the frequency domain.
 - ```.waveform()``` returns amplitude readings from -1 to 1 in the time domain. [demo](http://therewasaguy.github.io/p5-music-viz/demos/03_fft_waveform) | [source](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/03_fft_waveform/sketch.js)
-
-
-## Demos:
-### [Amplitude](http://therewasaguy.github.io/p5-music-viz/demos/01_hello_amplitude) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/01_hello_amplitude/sketch.js)
-
-## [Amplitude Logarithmic Map](http://therewasaguy.github.io/p5-music-viz/demos/01_hello_amplitude_logMap)
-
-## [Amplitude over time](http://therewasaguy.github.io/p5-music-viz/demos/01b_amplitude_time/)
-
-## [Threshold](http://therewasaguy.github.io/p5-music-viz/demos/01c_amplitude_threshold/)
-
-## [Simple Beat Detection](http://therewasaguy.github.io/p5-music-viz/demos/01d_beat_detect_amplitude/)
-
-## [Draw Full Waveform w/ Playhead](http://therewasaguy.github.io/p5-music-viz/demos/02_draw_peaks_and_playhead)
-
-### [Time Domain (Oscilloscope)](http://therewasaguy.github.io/p5-music-viz/demos/03_time_domain_oscilloscope) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/03_time_domain_oscilloscope/sketch.js)
-
-### [FFT Spectrum Drag, Drop 'n Analyze](http://therewasaguy.github.io/p5-music-viz/demos/04_fft_freq_spectrum/) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/04_fft_freq_spectrum/sketch.js)
-
-### [FFT Spectrograph](http://therewasaguy.github.io/p5-music-viz/demos/04b_fft_spectrograph/)
-
-### [FFT Scale by Neighbors](http://therewasaguy.github.io/p5-music-viz/demos/05_fft_scaleNeighbors/)
-
-### [FFT Scale by 1/3 Octave](http://therewasaguy.github.io/p5-music-viz/demos/05_fft_scaleOneThirdOctave/)
-
-### [FFT Unknown Pleasures](http://therewasaguy.github.io/p5-music-viz/demos/05_fft_scaleOneThirdOctave_UnknownPleasures/)
-
-### [FFT Particle System](http://therewasaguy.github.io/p5-music-viz/demos/05a_fft_particle_system) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/05a_fft_particle_system/sketch.js)
-
-
-### [FFT Peak Detect](http://therewasaguy.github.io/p5-music-viz/demos/05b_p5PeakDetect_simple) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/05b_p5PeakDetect_simple/sketch.js)
-
-### [Autocorrelate Time Domain](http://therewasaguy.06b_autoCorrelationCircle.io/p5-music-viz/demos/06a_autoCorrelation) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/05b_p5PeakDetect_simple/sketch.js)
-
-### [Autocorrelation Circle](http://therewasaguy.github.io/p5-music-viz/demos/06b_autoCorrelationCircle) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/06b_autoCorrelationCircle/sketch.js)
-
-### [Pitch Track](http://therewasaguy.github.io/p5-music-viz/demos/06c_autoCorrelation_PitchTrack) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/06c_autoCorrelation_PitchTrack/sketch.js)
-
-
-### [Display Lyrics](http://therewasaguy.github.io/p5-music-viz/demos/07_lyrics) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/07_lyrics/sketch.js)
-
-### [Pre-rendered Analysis (via Echo Nest - Beat + Pitch)](http://therewasaguy.github.io/p5-music-viz/demos/08_echonestBeatPitch) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/08_echonestBeatPitch/sketch.js)
-
-### [Pre-rendered Analysis (via Echo Nest) - Pitch Segment 1](http://therewasaguy.github.io/p5-music-viz/demos/08_echonestPitchSegment) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/08_echonestPitchSegment/sketch.js)
-
 
 
 ***Music included in the demos/repo:***
