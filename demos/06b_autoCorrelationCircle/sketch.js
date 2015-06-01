@@ -10,8 +10,10 @@
  *  Example by Jason Sigal and Golan Levin.
  */
 
-var source, fft, amp;
+var mic, audioFile, fft;
 var bNormalize = true;
+
+var audioIsPlaying = false;
 
 // if > 0, ignores levels below this threshold
 var centerClip = 0;
@@ -24,15 +26,13 @@ function setup() {
   angleMode(RADIANS);
   translate(width/2, height/2);
 
-  // source = new p5.AudioIn();
-  source = createAudio('../../music/Peter_Johnston_-_La_ere_gymnopedie.mp3');
-  source.play();
+  mic = new p5.AudioIn();
+  mic.start();
+
+  audioFile = createAudio('../../music/Peter_Johnston_-_La_ere_gymnopedie.mp3');
 
   fft = new p5.FFT();
-  fft.setInput(source);
-
-  amp = new p5.Amplitude();
-  amp.setInput(source);
+  fft.setInput(mic);
 }
 
 function draw() {
@@ -139,4 +139,26 @@ function autoCorrelate(buffer) {
   }
 
   return newBuffer;
+}
+
+
+// toggle input
+function keyPressed() {
+  if (key == 'T') {
+    toggleInput();
+  }
+}
+
+function toggleInput() {
+  if (audioIsPlaying ) {
+    audioFile.pause();
+    mic.start();
+    fft.setInput(mic);
+    audioIsPlaying = false;
+  } else {
+    audioFile.play();
+    mic.stop();
+    fft.setInput(audioFile);
+    audioIsPlaying = true;
+  }
 }
