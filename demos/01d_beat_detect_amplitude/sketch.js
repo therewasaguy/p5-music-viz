@@ -49,6 +49,7 @@ var framesSinceLastBeat = 0; // once this equals beatHoldFrames, beatCutoff star
 
 
 function preload() {
+  soundFile = loadSound('../../music/YACHT_-_06_-_Summer_Song_Instrumental.mp3');
 }
 
 function setup() {
@@ -58,7 +59,6 @@ function setup() {
 
   amplitude = new p5.Amplitude();
 
-  soundFile = loadSound('../../music/YACHT_-_06_-_Summer_Song_Instrumental.mp3');
   soundFile.play();
 
   amplitude.setInput(soundFile);
