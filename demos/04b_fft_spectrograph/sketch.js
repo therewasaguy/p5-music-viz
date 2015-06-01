@@ -18,7 +18,7 @@ var fft;
 var binCount = 1024;
 var bins = new Array(binCount);
 
-var speed = 5;
+var speed = 4;
 
 // canvas is global so we can copy it
 var cnv;
