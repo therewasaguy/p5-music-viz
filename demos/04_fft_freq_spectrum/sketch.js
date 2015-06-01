@@ -7,27 +7,29 @@ var bins = new Array(binCount);
 
 
 function preload() {
-  soundFile = loadSound('../../music/Broke_For_Free_-_01_-_As_Colorful_As_Ever.mp3')
 }
 
 function setup() {
-  c = createCanvas(windowWidth, windowHeight);
+  var cnv = createCanvas(windowWidth, windowHeight);
   noStroke();
-  makeDropZone(c, soundFile)
-
-  // Hue Saturation Brightness
   colorMode(HSB);
 
-  soundFile.play();
+  // make canvas drag'n'dropablle with gotFile as the callback
+  makeDragAndDrop(cnv, gotFile);
+
+  soundFile = loadSound('../../music/Broke_For_Free_-_01_-_As_Colorful_As_Ever.mp3')
   mic = new p5.AudioIn();
   osc = new p5.Oscillator();
   osc.amp(0.5);
 
   var smoothing = 0.6;
   fft = new p5.FFT(smoothing, binCount);
-  for (var i = 0; i <= binCount; i++) {
+
+  for (var i = 0; i < binCount; i++) {
     bins[i] = new Bin(i, binCount);
   }
+
+  toggleInput(1);
 }
 
 function draw() {
@@ -37,23 +39,26 @@ function draw() {
 
   if (logView) {
     var prevPoint = 0;
-    for (var i = 0; i < spectrum.length; i++) {
+    for (var i = 0; i < binCount; i++) {
       var previousValue = prevPoint;
-      prevPoint = bins[i].drawLog(i, spectrum.length, spectrum[i], previousValue);
+      prevPoint = bins[i].drawLog(i, binCount, spectrum[i], previousValue);
     }
   }
   else {
-    for (var i = 0; i < spectrum.length; i++) {
-      bins[i].drawLin(i, spectrum.length, spectrum[i]);
+    for (var i = 0; i < binCount; i++) {
+      bins[i].drawLin(i, binCount, spectrum[i]);
     }
   }
 
   if (typeof selectedBin !== 'undefined') {
     labelStuff();
-
     osc.freq(selectedBin.freq);
   }
 }
+
+
+
+
 
 function labelStuff() {
   fill(255);
@@ -71,23 +76,35 @@ function labelStuff() {
   text('Logarithmic view: ' + logView +' (L to toggle)', width/2, 80);
 }
 
-/**
- *  uses dragfile.js to make the entire canvas a "dropzone"
- *  for dragin'n'dropin' audio files
- */
-function makeDropZone(c, soundFile) {
-  var dropZone = new AudioDropZone(c);
-  dropZone.onTransfer = function(buf) {
-    soundFile.buffer = buf;
-    soundFile.stop();
-    soundFile.play();
-  };
+
+
+// ==================
+// Handle Drag & Drop
+// ==================
+
+function makeDragAndDrop(canvas, callback) {
+  var domEl = getElement(canvas.elt.id);
+  domEl.drop(callback);
 }
 
+function gotFile(file) {
+  soundFile.dispose();
+  soundFile = loadSound(file, function() {
+    toggleInput(0);
+  });
+}
+
+// ============
+// Window Resize
+// ============
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   background(0);
 }
+
+// ============
+// toggle input
+// ============
 
 // in p5, keyPressed is not case sensitive, but keyTyped is
 function keyPressed() {
@@ -95,26 +112,34 @@ function keyPressed() {
     toggleInput();
   }
   if (key == 'L') {
+    console.log('l');
     toggleScale();
   }
 }
 
-var inputMode = 0;
-function toggleInput() {
-  inputMode += 1;
-  inputMode = inputMode % 6;
+// start with mic as input
+var inputMode = 1;
+
+function toggleInput(mode) {
+  if (typeof(mode) === 'number') {
+    inputMode = mode;
+  } else {
+    inputMode += 1;
+    inputMode = inputMode % 6;
+  }
   switch (inputMode) {
     case 0: // soundFile mode
       soundFile.play();
       osc.stop();
+      mic.stop();
       fft.setInput(soundFile);
-      currentSource = soundFile.url.split('/').pop();
+      currentSource = 'soundFile';
       break;
     case 1: // mic mode
       mic.start();
       soundFile.pause();
       fft.setInput(mic);
-      currentSource = 'Mic';
+      currentSource = 'mic';
       break;
     case 2: // sine mode
       osc.setType('sine');
@@ -122,19 +147,19 @@ function toggleInput() {
       soundFile.pause();
       mic.stop();
       fft.setInput(osc);
-      currentSource = 'Sine Wave';
+      currentSource = 'sine';
       break;
     case 3: // square mode
       osc.setType('triangle');
-      currentSource = 'Triangle Wave';
+      currentSource = 'triangle';
       break;
     case 4: // square mode
       osc.setType('square');
-      currentSource = 'Square Wave';
+      currentSource = 'square';
       break;
     case 5: // square mode
       osc.setType('sawtooth');
-      currentSource = 'Sawtooth Wave';
+      currentSource = 'sawtooth';
       break;
   }
 }

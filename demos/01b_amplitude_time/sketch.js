@@ -9,19 +9,18 @@
  */
 
 var mic, soundFile;
-
 var amplitude;
 
-var prevLevels = new Array(300);
+var prevLevels = new Array(60);
 
 
 function setup() {
   c = createCanvas(windowWidth, windowHeight);
   background(0);
-  fill(255);
   noStroke();
 
   rectMode(CENTER);
+  colorMode(HSB);
 
   mic = new p5.AudioIn();
   mic.start();
@@ -35,13 +34,17 @@ function setup() {
 }
 
 function draw() {
-  background(0,0,0,10);
+  background(20, 20);
+  fill(255, 10)
+  text('press t to toggle source', 20, 20);
 
   var level = amplitude.getLevel();
-  var w = 5;
-  var minH = 2;
-  var roundness = 2;
 
+  // rectangle variables
+  var spacing = 5;
+  var w = width/ (prevLevels.length * spacing);
+  var minHeight = 2;
+  var roundness = 20;
 
   // add new level to end of array
   prevLevels.push(level);
@@ -51,50 +54,13 @@ function draw() {
 
   // loop through all the previous levels
   for (var i = 0; i < prevLevels.length; i++) {
-    var x = map(i, prevLevels.length, 0, width/2, width);
-    var h = map(prevLevels[i], 0, 0.5, minH, height);
-
-    // fill
-    fill(255,255,255, map(i, 0, prevLevels.length, 0, 200));
+    var x = map(i, prevLevels.length, 0, width/2 - w, width);
+    var h = map(prevLevels[i], 0, 0.5, minHeight, height);
+    var alphaValue = logMap(i, 0, prevLevels.length, 1, 250);
+    var hueValue = map(h, minHeight, height, 200, 255);
+    fill(hueValue, 255, 255, alphaValue);
     rect(x, height/2, w, h, roundness, roundness, roundness, roundness);
     rect(width - x, height/2, w, h, roundness, roundness, roundness, roundness);
-
   }
 
-}
-
-
-
-// ================
-// Helper Functions
-// ================
-
-// resize canvas on windowResized
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-  background(0);
-}
-
-// T stands for toggleInput().
-// note: in p5, keyPressed is not case sensitive. keyTyped is
-function keyPressed() {
-  if (key == 'T') {
-    toggleInput();
-  }
-}
-
-/*
-  Toggle input and change which
-  source is feeding the p5.Amplitude.
- */
-function toggleInput() {
-  if (soundFile.isPlaying() ) {
-    soundFile.pause();
-    mic.start();
-    amplitude.setInput(mic);
-  } else {
-    soundFile.play();
-    mic.stop();
-    amplitude.setInput(soundFile);
-  }
 }

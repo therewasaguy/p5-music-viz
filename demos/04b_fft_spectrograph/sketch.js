@@ -1,3 +1,16 @@
+/**
+ *  A spectrograph plots the FFT of the frequency spectrum over time.
+ *
+ *  Lowest frequencies are at the bottom, highest at the top.
+ *  Time starts at the right and moves left at a variable speed.
+ *
+ *  Colors represent amplitude at that part of the frequency spectrum.
+ *
+ *  Press L to toggle scaling between logarithmic (default) and linear.
+ *
+ *  Press T to toggle source.
+ */
+
 var mic, osc, soundFile;
 var currentSource = 'Broke For Free - As Colorful As Ever';
 
@@ -6,41 +19,37 @@ var binCount = 1024;
 var bins = new Array(binCount);
 
 var speed = 5;
-var cnv;
 
-function preload() {
-  soundFile = loadSound('../../music/Broke_For_Free_-_01_-_As_Colorful_As_Ever.mp3')
-}
+// canvas is global so we can copy it
+var cnv;
 
 function setup() {
   cnv = createCanvas(windowWidth, windowHeight);
   noStroke();
-  makeDropZone(cnv, soundFile)
-
-  // Hue Saturation Brightness
   colorMode(HSB);
 
-  soundFile.play();
+  // make canvas drag'n'dropablle with gotFile as the callback
+  makeDragAndDrop(cnv, gotFile);
+
+  soundFile = loadSound('../../music/Broke_For_Free_-_01_-_As_Colorful_As_Ever.mp3');
   mic = new p5.AudioIn();
   osc = new p5.Oscillator();
   osc.amp(0.5);
 
   var smoothing = 0.6;
   fft = new p5.FFT(smoothing, binCount);
-  for (var i = 0; i <= binCount; i++) {
-    bins[i] = new Bin(i, binCount);
-  }
+  fft.setInput(mic);
+  toggleInput(1);
 }
 
 function draw() {
-  // background(0);
 
   var spectrum = fft.analyze();
 
   // copy the sketch and move it over based on the speed
   copy(cnv, 0, 0, width, height, -speed, 0, width, height);
 
-   // iterate thru current freq spectrum
+  // iterate thru current freq spectrum
   for (var i = 0; i < spectrum.length; i++) {
     var value;
     if (logView) {
@@ -59,37 +68,7 @@ function draw() {
 }
 
 
-
-
-function labelStuff() {
-  fill(255);
-  textSize(18);
-  text('~'+selectedBin.freq + 'Hz (bin #' + selectedBin.index+')', mouseX, mouseY );
-  text('Energy: ' + selectedBin.value, mouseX, mouseY + 20);
-
-  if (soundFile.isPlaying()) {
-    text('Current Time: ' + soundFile.currentTime().toFixed(3), width/2, 20);
-  }
-
-  text('Current Source: ' + currentSource, width/2, 40);
-  textSize(14);
-  text('Press T to toggle source', width/2, 60);
-  text('Logarithmic view: ' + logView +' (L to toggle)', width/2, 80);
-}
-
-/**
- *  uses dragfile.js to make the entire canvas a "dropzone"
- *  for dragin'n'dropin' audio files
- */
-function makeDropZone(c, soundFile) {
-  var dropZone = new AudioDropZone(c);
-  dropZone.onTransfer = function(buf) {
-    soundFile.buffer = buf;
-    soundFile.stop();
-    soundFile.play();
-  };
-}
-
+// ==============================================
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   background(0);
@@ -106,15 +85,20 @@ function keyPressed() {
 }
 
 var inputMode = 0;
-function toggleInput() {
-  inputMode += 1;
-  inputMode = inputMode % 6;
+function toggleInput(mode) {
+  if (typeof(mode) === 'number') {
+    inputMode = mode;
+  } else {
+    inputMode += 1;
+    inputMode = inputMode % 6;
+  }
   switch (inputMode) {
     case 0: // soundFile mode
       soundFile.play();
       osc.stop();
+      mic.stop();
       fft.setInput(soundFile);
-      currentSource = soundFile.url.split('/').pop();
+      currentSource = 'Soundfile';
       break;
     case 1: // mic mode
       mic.start();
@@ -150,66 +134,21 @@ function toggleScale() {
   logView = !logView;
 }
 
-function mouseMoved() {
-  if (soundFile.isLoaded()) {
-    for (var i = 0; i < bins.length; i++) {
-      if ( (bins[i].x + bins[i].width) <= mouseX && mouseX <= bins[i].x) {
-        bins[i].isTouching = true;
-      }
-      else {
-        bins[i].isTouching = false;
-      }
-    }
-  }
-  osc.freq(map(mouseX, 0, width, 20, 400));
+// ==================
+// Handle Drag & Drop
+// ==================
+
+function makeDragAndDrop(cnv, callback) {
+  var domEl = getElement(cnv.elt.id);
+  domEl.drop(callback);
 }
 
-// ==========
-// Bin Class
-// ==========
-
-var Bin = function(index, totalBins) {
-  // maybe redundant
-  this.index = index;
-  this.totalBins = totalBins;
-  this.color = color( map(this.index, 0, this.totalBins, 0, 255), 255, 255 );
-
-  this.isTouching = false;
-  this.x;
-  this.width;
-  this.value;
+function gotFile(file) {
+  soundFile.dispose();
+  soundFile = loadSound(file, function() {
+    toggleInput(0);
+  });
 }
-
-Bin.prototype.drawLog = function(i, totalBins, value, prev) {
-  this.x = map(Math.log(i+2), 0, Math.log(totalBins), 0, width - 200);
-  var h = map(value, 0, 255, height, 0)- height;
-  this.width = prev - this.x;
-  this.value = value;
-  this.draw(h);
-  return this.x;
-}
-
-Bin.prototype.drawLin = function(i, totalBins, value) {
-  this.x = map(i, 0, totalBins, 0, width - 200);
-  this.width = -width/totalBins;
-  this.value = value;
-  var h = map(value, 0, 255, height, 0)- height;
-  this.draw(h);
-}
-
-var selectedBin;
-
-Bin.prototype.draw = function(h) {
-  if (this.isTouching) {
-    selectedBin = bins[this.index];
-    this.freq = Math.round( this.index * 22050 / this.totalBins );
-    fill(100)
-  } else {
-    fill( this.color);
-  }
-  rect(this.x, height, this.width, h );
-}
-
 
 
 // helper functions via
