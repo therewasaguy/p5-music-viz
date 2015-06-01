@@ -32,7 +32,7 @@ function draw() {
   // If the volume > 0.1, a rect is drawn at a random location. 
   // The louder the volume, the larger the rectangle.
   var threshold = 0.1;
-  if (volume > threshold + triggered) {
+  if (volume > threshold + cutoff) {
     stroke(0);
     fill(0, 100);
     rect(random(40, width), random(height), volume*50, volume*50);
