@@ -41,8 +41,9 @@ function draw() {
   var level = amplitude.getLevel();
 
   // rectangle variables
-  var spacing = 5;
+  var spacing = 10;
   var w = width/ (prevLevels.length * spacing);
+
   var minHeight = 2;
   var roundness = 20;
 
@@ -50,17 +51,22 @@ function draw() {
   prevLevels.push(level);
 
   // remove first item in array
-  prevLevels.splice(1, 1);
+  prevLevels.splice(0, 1);
 
   // loop through all the previous levels
   for (var i = 0; i < prevLevels.length; i++) {
-    var x = map(i, prevLevels.length, 0, width/2 - w, width);
+
+    var x = map(i, prevLevels.length, 0, width/2, width);
     var h = map(prevLevels[i], 0, 0.5, minHeight, height);
+
     var alphaValue = logMap(i, 0, prevLevels.length, 1, 250);
+
     var hueValue = map(h, minHeight, height, 200, 255);
+
     fill(hueValue, 255, 255, alphaValue);
-    rect(x, height/2, w, h, roundness, roundness, roundness, roundness);
-    rect(width - x, height/2, w, h, roundness, roundness, roundness, roundness);
+
+    rect(x, height/2, w, h);
+    rect(width - x, height/2, w, h);
   }
 
 }

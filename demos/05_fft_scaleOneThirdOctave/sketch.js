@@ -1,5 +1,6 @@
 /**
- *  Re-group the FFT into more meaningful values
+ *  Re-group the array of FFT bins into an
+ *  array of more meaningful values
  *  using the splitOctaves method.
  */
 
@@ -21,6 +22,7 @@ function draw() {
   var spectrum = fft.analyze();
   var newBuffer = [];
 
+  // scaledSpectrum is a new, smaller array of more meaningful values
   var scaledSpectrum = splitOctaves(spectrum, 3);
   var len = scaledSpectrum.length;
 
@@ -47,6 +49,9 @@ function draw() {
 /**
  *  Divides an fft array into octaves with each
  *  divided by three, or by a specified "slicesPerOctave".
+ *  
+ *  There are 10 octaves in the range 20 - 20,000 Hz,
+ *  so this will result in 10 * slicesPerOctave + 1
  *
  *  @method splitOctaves
  *  @param {Array} spectrum Array of fft.analyze() values
@@ -57,18 +62,17 @@ function draw() {
 function splitOctaves(spectrum, slicesPerOctave) {
   var scaledSpectrum = [];
   var len = spectrum.length;
-  var sRate = sampleRate();
-  var nyquist = sRate/2;
 
   // default to thirds
   var n = slicesPerOctave|| 3;
   var nthRootOfTwo = Math.pow(2, 1/n);
 
   // the last N bins get their own 
-  var lowestBin = 3;
+  var lowestBin = slicesPerOctave;
 
   var binIndex = len - 1;
   var i = binIndex;
+
 
   while (i > lowestBin) {
     var nextBinIndex = round( binIndex/nthRootOfTwo );
@@ -92,31 +96,41 @@ function splitOctaves(spectrum, slicesPerOctave) {
     binIndex = nextBinIndex;
   }
 
-  scaledSpectrum.reverse();
-
   // add the lowest bins at the end
-  for (var j = 0; j < i; j++) {
+  for (var j = i; j > 0; j--) {
     scaledSpectrum.push(spectrum[j]);
   }
+
+  // reverse so that array has same order as original array (low to high frequencies)
+  scaledSpectrum.reverse();
 
   return scaledSpectrum;
 }
 
 
+
 // average a point in an array with its neighbors
 function smoothPoint(spectrum, index, numberOfNeighbors) {
 
-  // default to 4 neighbors
-  var neighbors = numberOfNeighbors || 4;
+  // default to 2 neighbors on either side
+  var neighbors = numberOfNeighbors || 2;
   var len = spectrum.length;
 
   var val = 0;
 
-  for (var i = index; i < (index+neighbors) && i < len; i++) {
-    val += spectrum[i];
+  // start below the index
+  var indexMinusNeighbors = index - neighbors;
+  var smoothedPoints = 0;
+
+  for (var i = indexMinusNeighbors; i < (index+neighbors) && i < len; i++) {
+    // if there is a point at spectrum[i], tally it
+    if (typeof(spectrum[i]) !== 'undefined') {
+      val += spectrum[i];
+      smoothedPoints++;
+    }
   }
 
-  val = val/neighbors
+  val = val/smoothedPoints;
 
   return val;
 }

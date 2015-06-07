@@ -1,18 +1,34 @@
-/**
- *  Display lyrics as a song plays.
- *
- *  Uses the p5.dom library to create an HTML5 Audio Element, and schedules
- *  events using audioEl.addCue(callback, time, value)
- *
- *  Lyrics are parsed from an LRC file, which is used for karaoke.
- *  Here is a quick way to generate your own LRC file for any song: http://lrcgenerator.com/
- *  
- *  First we loadStrings to read the LRC file, then convert the Strings to JSON using this
- *  LRC to JSON converter:
- *  https://github.com/justan/lrc (MIT License)
- *
- *  Music "Twit JournalisT" by Alaclair Ensemble (alaclair.com)
- *  Creative Commons Attribution-Share-Alike
+/*
+  Pre-analyze a song using the Echo Nest API. It returns a JSON file with every beat, segment, section and more.
+
+  Each segment contains a start time, an end time, and an array of pitches. The pitches represent pitch classes
+  (i.e. C, C#, D, D#, E, F, G, G#, A, A#, B, C).
+  Each item in the pitches array gets a value between 0 and 1.0 indicating
+  how much of that pitch class is present in the section.
+
+  In this example, each slice of the pie represents one pitch class.
+  The size of the slices increases for every Echo Nest beat.
+  And the rotation changes when Echo Nest thinks there is a new section.
+
+  -- HOW TO USE THE ECHO NEST ANALYZER --
+  First, you'll need an API Key from developer.echonest.com.
+  Then, open up the terminal and make this POST request with your mp3 path and API key:
+  
+  Then, Upload your file to the Echo Nest by entering this in the commnd line:
+  curl -F "api_key=[YOURAPIKEY]" -F "filetype=mp3" -F "track=@[PATH]" "http://developer.echonest.com/api/v4/track/upload"
+  
+  wait for the response...and copy the 'id' which is unique to your track upload.
+
+  Paste the ID and your API key into this GET request:
+  http://developer.echonest.com/api/v4/track/profile?api_key=[YOURAPIKEY]&format=json&id=[YOURTRACKID]&bucket=audio_summary
+
+  Click through to analysis_url, and save that JSON file
+
+  more info http://developer.echonest.com/raw_tutorials/faqs/faq_03.html
+  Further reading: http://developer.echonest.com/docs/v4/_static/AnalyzeDocumentation.pdf
+  
+  Music "Twit JournalisT" by Alaclair Ensemble (alaclair.com)
+  Creative Commons Attribution-Share-Alike
  */
 
 var audioEl;
@@ -55,7 +71,7 @@ function setup() {
 }
 
 
-// callback specified by addCue(callback, time, value).
+// callback specified by addCue(time, callback, value).
 function showLyric(value) {
   var lyric = value;
 
@@ -65,12 +81,13 @@ function showLyric(value) {
     return;
   }
 
+  // othewrwise, create a new <span> with the lyric, followed by a space
   currentLyric = lyric + ' ';
   var newLyric = createSpan(currentLyric);
 
   // give it a random color
   newLyric.style('color', 'rgba(' + int(random(0,255)) + ', ' + int(random(0,255)) + ', ' + int(random(0,255)) +', 255)' );
 
-  // append it to the lyricDiv
+  // append newLyric to the lyricDiv
   lyricDiv.child(newLyric);
 }

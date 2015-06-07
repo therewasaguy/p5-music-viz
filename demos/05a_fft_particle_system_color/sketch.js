@@ -14,17 +14,12 @@ var particles =  new Array(binCount);
 var volume = 0.01; // initial starting volume of amplitude (necessary for p5.sound)
 var amplitude;
 
-// preload ensures that the sound is loaded and ready to play in time for setup
-function preload() {
-  soundFile = loadSound('../../music/Broke_For_Free_-_01_-_As_Colorful_As_Ever.mp3')
-}
-
 function setup() {
   c = createCanvas(windowWidth, windowHeight);
   noStroke();
   colorMode(HSB, 360, 100, 100, 100);
 
-
+  soundFile = createAudio('../../music/Broke_For_Free_-_01_-_As_Colorful_As_Ever.mp3')
   soundFile.play();
   mic = new p5.AudioIn();
 

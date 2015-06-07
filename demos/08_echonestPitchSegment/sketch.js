@@ -32,14 +32,14 @@ var bgColor;
 function setup() {
   cnv = createCanvas(windowWidth, windowHeight);
   noStroke();
-  bgColor = color(253,254,228, 20);
+  bgColor = color(253,254,250, 30);
 
   colorMode(HSB, 255);
 
   maxDiameter = width;
   translate(width/2, height/2);
 
-  rotations = [0, PI/60, -PI/60, PI/32, -PI/32, PI/18, PI/6, -PI/18, -PI/6];
+  rotations = [0, PI/60, -PI/60, PI/32, -PI/32, PI/18, PI/6, -PI/18, -PI/6, PI/12];
   rotationIncrement = rotations[0];
 
   // draw keys
@@ -47,7 +47,7 @@ function setup() {
     var diameter = width/8;
     var angle = TWO_PI/notes.length;
     var hue = round( map(i, 0, notes.length, 0, 255) );
-    var c = color(hue, 250, 200, 255);
+    var c = color(hue, 170, 250, 200);
     notes[i] = new Arc(i, diameter, angle, c);
     notes[i].draw();
   }
@@ -111,8 +111,9 @@ function scheduleSections(sections) {
 // callbacks from timeline events
 
 function triggerNote(pitches) {
+  var pitchThreshold = 0.5;
   for (var i = 0; i < notes.length; i++) {
-    if (pitches[i] > 0.8) {
+    if (pitches[i] > pitchThreshold) {
       notes[i].triggerNote(pitches[i]);
       notes[i].triggerBeat();
     }
@@ -125,7 +126,7 @@ function releaseNote() {
   }
 }
 
-function changeRotation(time, index) {
+function changeRotation(index) {
   rotationIncrement = rotations[index % rotations.length];
 }
 

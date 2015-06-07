@@ -1,6 +1,6 @@
 /*
  * Scale values logarithmically
- * using logMap from _helper.js
+ * using logMap from helper.js
  */
 
 var mic, soundFile;
@@ -32,6 +32,7 @@ function draw() {
   text('mapMax: ' + mapMax, 20, 40);
 
   // map ellipse height
-  var ellipseHeight = logMap(level, 0, mapMax, height, 0);
+  var ellipseHeight = logMap(level, 0, mapMax, 0, 1);
+  console.log(ellipseHeight);
   ellipse(width/2, ellipseHeight, 100, 100);
 }

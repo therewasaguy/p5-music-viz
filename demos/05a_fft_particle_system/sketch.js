@@ -17,7 +17,7 @@ function setup() {
   c = createCanvas(windowWidth, windowHeight);
   noStroke();
 
-  soundFile = loadSound('../../music/Broke_For_Free_-_01_-_As_Colorful_As_Ever.mp3');
+  soundFile = createAudio('../../music/Broke_For_Free_-_01_-_As_Colorful_As_Ever.mp3');
   mic = new p5.AudioIn();
   mic.start();
 

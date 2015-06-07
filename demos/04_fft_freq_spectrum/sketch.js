@@ -59,7 +59,7 @@ function draw() {
 
 
 
-
+// draw text
 function labelStuff() {
   fill(255);
   textSize(18);
@@ -74,6 +74,8 @@ function labelStuff() {
   textSize(14);
   text('Press T to toggle source', width/2, 60);
   text('Logarithmic view: ' + logView +' (L to toggle)', width/2, 80);
+  text('Drag a soundfile here to play it', width/2, 100);
+
 }
 
 
