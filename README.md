@@ -134,8 +134,9 @@ Participants may use whatever tools they wish, but the demos in this repo use th
 * [Tone.js](https://github.com/TONEnoTONE/Tone.js) is a JS library for composing interactive music.
 * [dancer.js](https://github.com/jsantell/dancer.js) is a JS library for audio visualizations.
 
-### Deeper into Music and Computers
+### Deeper into DSP
 * [Music and Computers online book, Columbia University](http://music.columbia.edu/cmc/MusicAndComputers/)
+* [A Compact Primer on Digital Signal Processing](http://jackschaedler.github.io/circles-sines-signals/)
 
 ### Music Visualization Inspiration...
 * [Optical Poem, Oskar Fischinger's 1938 visualization of Franz Liszt's "2nd Hungarian Rhapsody"](https://www.youtube.com/watch?v=they7m6YePo)
