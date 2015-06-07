@@ -47,7 +47,7 @@ This session is for anyone who would like to explore music, visuals and creative
 
 ### [Pitch Track](http://therewasaguy.github.io/p5-music-viz/demos/06c_autoCorrelation_PitchTrack) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/06c_autoCorrelation_PitchTrack/sketch.js)
 
-#$4. Musical Timing
+#4. Musical Timing
 ### [Display Lyrics](http://therewasaguy.github.io/p5-music-viz/demos/07_lyrics) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/07_lyrics/sketch.js)
 *sync music to timestamped lyrics*
 
@@ -136,6 +136,7 @@ Participants may use whatever tools they wish, but the demos in this repo use th
 
 # Music Visualization Inspiration...
 * [Kandinsky's Color Theory](http://lettersfrommunich.wikispaces.com/Kandinsky's+Color+Theory)
+
 **Notation**
 * [Optical Poem, Oskar Fischinger's 1938 visualization of Franz Liszt's "2nd Hungarian Rhapsody"](https://www.youtube.com/watch?v=they7m6YePo)
 * [Notations21](http://www.notations21.net/)
@@ -155,7 +156,7 @@ Participants may use whatever tools they wish, but the demos in this repo use th
 
 **Audio**
 * [Cymatics](https://vimeo.com/111593305)
-* [Golan Levin, Zach Lieberman, Jaap Blonk, Joan La Barbara](https://vimeo.com/25037421)
+* [Golan Levin, Zach Lieberman, Jaap Blonk, Joan La Barbara (w/ autocorrelation)](https://vimeo.com/25037421)
 * [Oscillator Art (TK Broderick)](http://oscillator-art.herokuapp.com)
 * [Music Makes You Travel (makio135)](http://www.openprocessing.org/sketch/138877)
 * [Ripple](http://wemakeawesomesh.it/musicviz/ripple/)
@@ -166,7 +167,7 @@ Participants may use whatever tools they wish, but the demos in this repo use th
 * [Listen to Wikipedia](http://listen.hatnote.com/)
 * [Metadata - Echo Nest's Map of Musical Styles](http://static.echonest.com/playlist/moms/)
 * [Making Music with Tennis Data](https://www.youtube.com/watch?v=BUkwbsd-NcA)
-* [Sonifying the Flocking Algorithm (b2renger)](http://b2renger.github.io/pages_p5js/flock/index.html)
+* [Sonifying the Flocking Algorithm (@b2renger)](http://b2renger.github.io/pages_p5js/flock/index.html)
 
 **Musical Form**
 * [The Shape of Song (Martin Wattenberg)](http://www.bewitched.com/song.html)
