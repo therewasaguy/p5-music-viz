@@ -37,6 +37,8 @@ This session is for anyone who would like to explore music, visuals and creative
 
 ### [FFT Unknown Pleasures](http://therewasaguy.github.io/p5-music-viz/demos/05_fft_scaleOneThirdOctave_UnknownPleasures/)
 
+### [FFT Particle System Scaled / Seek (Fireworks)](http://therewasaguy.github.io/p5-music-viz/demos/05a_fft_particle_system_seekScaled/)
+
 ### [FFT Peak Detect](http://therewasaguy.github.io/p5-music-viz/demos/05b_p5PeakDetect_simple) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/05b_p5PeakDetect_simple/sketch.js)
 
 ##3. Pitch
