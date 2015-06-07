@@ -45,6 +45,7 @@ Part 2: Musical Timing
 
 ### [FFT Particle System](http://therewasaguy.github.io/p5-music-viz/demos/05a_fft_particle_system) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/05a_fft_particle_system/sketch.js)
 
+### [FFT Particle System Seek/Scale](http://therewasaguy.github.io/p5-music-viz/demos/05a_fft_particle_system_seekScaled) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/05a_fft_particle_system_seekScaled/sketch.js)
 
 ### [FFT Peak Detect](http://therewasaguy.github.io/p5-music-viz/demos/05b_p5PeakDetect_simple) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/05b_p5PeakDetect_simple/sketch.js)
 
