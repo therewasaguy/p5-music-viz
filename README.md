@@ -1,69 +1,64 @@
 # Visualizing Music with p5.js
 
-This session is for anyone who would like to explore music, visuals and creative coding for the web. We'll demonstrate types of data we can get from digital signal processing using interactive sketches in p5.js and the p5.sound library that builds upon the Web Audio API. 
+This session is for anyone who would like to explore music, visuals and creative coding for the web. We'll demonstrate types of data we can get from digital signal processing using interactive sketches in p5.js and the p5.sound library that builds upon the Web Audio API. We'll explore various methods to map this data onto meaningful visuals that enhance our experience of music.
 
+# Slides
 **[Intro Slides](http://slides.com/jasonsigal/deck)**
 
-**[Signal Processing Slides](http://slides.com/jasonsigal/h)**
+**[Code Slides](http://slides.com/jasonsigal/h)**
 
-Part 1: Signal Processing
-- amplitude
-- frequency
-- peak detection
-- pitch detection / autocorrelation
 
-How can we map this data onto meaningful visuals that enhance our experience of music?
+# Demos:
+##1. Amplitude
+### [Hello Amplitude](http://therewasaguy.github.io/p5-music-viz/demos/01_hello_amplitude) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/01_hello_amplitude/sketch.js)
 
-Part 2: Musical Timing
-- sync music to timestamped lyrics
-- pre-analyze file with the Echo Nest API, and visualize the result
+### [Amplitude over time](http://therewasaguy.github.io/p5-music-viz/demos/01b_amplitude_time/)
 
-## Demos:
-### [Amplitude](http://therewasaguy.github.io/p5-music-viz/demos/01_hello_amplitude) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/01_hello_amplitude/sketch.js)
+### [Amplitude Threshold](http://therewasaguy.github.io/p5-music-viz/demos/01c_amplitude_threshold/)
 
-## [Amplitude Logarithmic Map](http://therewasaguy.github.io/p5-music-viz/demos/01_hello_amplitude_logMap)
+### [Simple Beat Detection](http://therewasaguy.github.io/p5-music-viz/demos/01d_beat_detect_amplitude/)
 
-## [Amplitude over time](http://therewasaguy.github.io/p5-music-viz/demos/01b_amplitude_time/)
-
-## [Threshold](http://therewasaguy.github.io/p5-music-viz/demos/01c_amplitude_threshold/)
-
-## [Simple Beat Detection](http://therewasaguy.github.io/p5-music-viz/demos/01d_beat_detect_amplitude/)
-
-## [Draw Full Waveform w/ Playhead](http://therewasaguy.github.io/p5-music-viz/demos/02_draw_peaks_and_playhead)
+### [Draw Full Waveform w/ Playhead](http://therewasaguy.github.io/p5-music-viz/demos/02_draw_peaks_and_playhead)
 
 ### [Time Domain (Oscilloscope)](http://therewasaguy.github.io/p5-music-viz/demos/03_time_domain_oscilloscope) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/03_time_domain_oscilloscope/sketch.js)
 
+##2. Frequency
+*FFT - Fast Fourier Transform*
 ### [FFT Spectrum Drag, Drop 'n Analyze](http://therewasaguy.github.io/p5-music-viz/demos/04_fft_freq_spectrum/) | [Source Code](https://github.com/therewasaguy/p5-music-viz/tree/master/demos/04_fft_freq_spectrum/sketch.js)
 
 ### [FFT Spectrograph](http://therewasaguy.github.io/p5-music-viz/demos/04b_fft_spectrograph/)
 
+### [FFT Particle System](http://therewasaguy.github.io/p5-music-viz/demos/05a_fft_particle_system) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/05a_fft_particle_system/sketch.js)
+
+*Scaling the FFT*
 ### [FFT Scale by Neighbors](http://therewasaguy.github.io/p5-music-viz/demos/05_fft_scaleNeighbors/)
 
 ### [FFT Scale by 1/3 Octave](http://therewasaguy.github.io/p5-music-viz/demos/05_fft_scaleOneThirdOctave/)
 
 ### [FFT Unknown Pleasures](http://therewasaguy.github.io/p5-music-viz/demos/05_fft_scaleOneThirdOctave_UnknownPleasures/)
 
-### [FFT Particle System](http://therewasaguy.github.io/p5-music-viz/demos/05a_fft_particle_system) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/05a_fft_particle_system/sketch.js)
-
-
 ### [FFT Peak Detect](http://therewasaguy.github.io/p5-music-viz/demos/05b_p5PeakDetect_simple) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/05b_p5PeakDetect_simple/sketch.js)
 
+##3. Pitch
+*autocorrelation in the time domain to detect fundamental frequency*
 ### [Autocorrelate Time Domain](http://therewasaguy.06b_autoCorrelationCircle.io/p5-music-viz/demos/06a_autoCorrelation) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/05b_p5PeakDetect_simple/sketch.js)
 
 ### [Autocorrelation Circle](http://therewasaguy.github.io/p5-music-viz/demos/06b_autoCorrelationCircle) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/06b_autoCorrelationCircle/sketch.js)
 
 ### [Pitch Track](http://therewasaguy.github.io/p5-music-viz/demos/06c_autoCorrelation_PitchTrack) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/06c_autoCorrelation_PitchTrack/sketch.js)
 
-
+#$4. Musical Timing
 ### [Display Lyrics](http://therewasaguy.github.io/p5-music-viz/demos/07_lyrics) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/07_lyrics/sketch.js)
+*sync music to timestamped lyrics*
 
 ### [Pre-rendered Analysis (via Echo Nest - Beat + Pitch)](http://therewasaguy.github.io/p5-music-viz/demos/08_echonestBeatPitch) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/08_echonestBeatPitch/sketch.js)
+*pre-analyze file with the Echo Nest API, and visualize the result*
 
 ### [Pre-rendered Analysis (via Echo Nest) - Pitch Segment 1](http://therewasaguy.github.io/p5-music-viz/demos/08_echonestPitchSegment) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/08_echonestPitchSegment/sketch.js)
 
 ---
 
-### Libraries
+# Libraries
 Participants may use whatever tools they wish, but the demos in this repo use the following libraries:
 
 **p5.js** is a JavaScript library that starts with the original goal of Processing, to make coding accessible for artists, designers, educators, and beginners, and reinterprets this for today’s web.
@@ -77,18 +72,18 @@ Participants may use whatever tools they wish, but the demos in this repo use th
   * [github](https://github.com/processing/p5.js-sound)
 
 **p5.dom.js** is an addon library that helps us manipulate the DOM.
+  * [p5.dom documentation](http://p5js.org/reference/#/libraries/p5.dom)
 
-
-### Setup
+# Setup
 * Download this github repo, and build off of the empty **example sketch in the template folder**. It links to the libraries.
 * [Running p5.js on a local server](https://github.com/lmccart/p5.js/wiki/Local-server)
 * You'll need a text editor. Some options:
   * [SublimeText](http://www.sublimetext.com/)
   * [p5 IDE](http://p5js.org/download/)
+* [Getting Started: Your First Sketch](http://p5js.org/get-started/#your-first-sketch)
 
-### Getting Started with p5
-* [Your First Sketch](http://p5js.org/get-started/#your-first-sketch)
-## A few more complex p5 examples:
+## Inspiration:
+* [p5.js port of Dan Shiffman's Nature of Code](https://github.com/shiffman/The-Nature-of-Code-Examples-p5.js/)
 * [Forces](http://p5js.org/learn/examples/Simulate_Forces.php)
 * [Particle System](http://p5js.org/learn/examples/Simulate_Particle_System.php)
 * [Perlin Noise](http://p5js.org/learn/examples/Math_Noise_Wave.php)
@@ -106,11 +101,11 @@ Participants may use whatever tools they wish, but the demos in this repo use th
 
 [**p5.PeakDetect**](http://p5js.org/reference/#/p5.PeakDetect) - *detect beats and/or onsets within a frequency range* [documentation](http://p5js.org/reference/#/p5.PeakDetect) }| [source code](https://github.com/processing/p5.js-sound/blob/master/src/peakdetect.js)
 
-[**p5.Amplitude**](http://p5js.org/reference/#/p5.Amplitude) - *Analyze volume.* [documentation](http://p5js.org/reference/#/p5.Amplitude) | [source code](https://github.com/processing/p5.js-sound/blob/master/src/amplitude.js) 
+[**p5.Amplitude**](http://p5js.org/reference/#/p5.Amplitude) - *Analyze volume (amplitude).* [documentation](http://p5js.org/reference/#/p5.Amplitude) | [source code](https://github.com/processing/p5.js-sound/blob/master/src/amplitude.js) 
 - ```.getLevel()``` returns a Root Mean Square (RMS) amplitude reading, between 0.0 and 1.0, usually peaking at 0.5
 - ```.smooth()```
 
-[**p5.FFT**](http://p5js.org/reference/#/p5.FFT) - *Analyze amplitude over time or frequency.* [documentation](http://p5js.org/reference/#/p5.FFT) | [source code](https://github.com/processing/p5.js-sound/blob/master/src/fft.js) 
+[**p5.FFT**](http://p5js.org/reference/#/p5.FFT) - *Analyze amplitude over time / frequency.* [documentation](http://p5js.org/reference/#/p5.FFT) | [source code](https://github.com/processing/p5.js-sound/blob/master/src/fft.js) 
 - ```.analyze()``` returns amplitude readings from 0-255 in the frequency domain.
 - ```.waveform()``` returns amplitude readings from -1 to 1 in the time domain. [demo](http://therewasaguy.github.io/p5-music-viz/demos/03_fft_waveform) | [source](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/03_fft_waveform/sketch.js)
 
@@ -123,8 +118,9 @@ Participants may use whatever tools they wish, but the demos in this repo use th
 - [Inara George](https://www.facebook.com/inarageorge) - Q - [Sargent Singles Vol 1](http://freemusicarchive.org/music/inara_george/sargent_singles_volume_1/01_q) [Creative Commons BY-NC-SA](http://creativecommons.org/licenses/by-nc-sa/3.0/us/)
 - For more Creative Commons resources, check out the [Free Music Archive's Guide to Online Audio Resources](https://docs.google.com/document/d/1mbF5vgWp9duoGMxNl-Y8tEyWbFhkgw0JBK8F7A2cg68/edit?usp=sharing)
 
+----
 
-### Dig Deeper into Web Audio Music Visualization...
+# Dig Deeper into Web Audio Music Visualization...
 * [Pitch Detection - Web Audio Demo](https://webaudiodemos.appspot.com/pitchdetect/)
 * [Another Approach to Beat Detection Using Web Audio API](http://tech.beatport.com/2014/web-audio/beat-detection-using-web-audio/)
 * [Making Audio Reactive Visuals w/ Web Audio API](http://www.airtightinteractive.com/2013/10/making-audio-reactive-visuals/)
@@ -134,19 +130,48 @@ Participants may use whatever tools they wish, but the demos in this repo use th
 * [Tone.js](https://github.com/TONEnoTONE/Tone.js) is a JS library for composing interactive music.
 * [dancer.js](https://github.com/jsantell/dancer.js) is a JS library for audio visualizations.
 
-### Deeper into DSP
+# Deeper into DSP
 * [Music and Computers online book, Columbia University](http://music.columbia.edu/cmc/MusicAndComputers/)
 * [A Compact Primer on Digital Signal Processing](http://jackschaedler.github.io/circles-sines-signals/)
 
-### Music Visualization Inspiration...
-* [Optical Poem, Oskar Fischinger's 1938 visualization of Franz Liszt's "2nd Hungarian Rhapsody"](https://www.youtube.com/watch?v=they7m6YePo)
-* [Beach Bells](https://vimeo.com/69633166)
+# Music Visualization Inspiration...
 * [Kandinsky's Color Theory](http://lettersfrommunich.wikispaces.com/Kandinsky's+Color+Theory)
+**Notation**
+* [Optical Poem, Oskar Fischinger's 1938 visualization of Franz Liszt's "2nd Hungarian Rhapsody"](https://www.youtube.com/watch?v=they7m6YePo)
 * [Notations21](http://www.notations21.net/)
-* [Patatap](http://www.patatap.com/)
-* [Piano Phase](http://www.pianophase.com/)
-* [jeffro / xtal](http://jeffro.nfshost.com/)
-* [Oscillator Art](http://oscillator-art.herokuapp.com)
-* [Music Makes You Travel](http://www.openprocessing.org/sketch/138877)
+* [Piano Phase (Alex Chen)](http://www.pianophase.com/)
 * [George & Jonathan](http://www.georgeandjonathan.com/)
+* [Stephen Malinowski's Music Animation Machine](http://www.musanim.com/)
+* [Artikulation (Rainer Wehinger / Gyorgy Ligeti)](https://www.youtube.com/watch?v=71hNl_skTZQ)
+* [animatednotation.com](http://animatednotation.com)
+* [John Whitney](https://www.youtube.com/watch?list=PLReZkoQinwGwrB_XqiBMqfRpq5gxDB03Z&v=ZrKgyY5aDvA)
+* [Mark Fell - Skydancer](https://www.youtube.com/watch?v=XnemXS9bVhk)
+
+**Interactive**
+* [computer.jazz (Yotam Mann, Sarah Rothberg)](http://computer.jazz)
+* [Patatap (Jono Brandel)](http://www.patatap.com/)
+* [jeffro / xtal](http://jeffro.nfshost.com/)
+* [Incredibox](http://indredibox.com)
+
+**Audio**
+* [Cymatics](https://vimeo.com/111593305)
+* [Golan Levin, Zach Lieberman, Jaap Blonk, Joan La Barbara](https://vimeo.com/25037421)
+* [Oscillator Art (TK Broderick)](http://oscillator-art.herokuapp.com)
+* [Music Makes You Travel (makio135)](http://www.openprocessing.org/sketch/138877)
 * [Ripple](http://wemakeawesomesh.it/musicviz/ripple/)
+* [Ryoji Ikeda](https://www.youtube.com/watch?v=omDK2Cm2mwo)
+
+**Data Sonification**
+* [Listening to the Data](http://blog.chartbeat.com/2013/10/09/listening-to-the-data/)
+* [Listen to Wikipedia](http://listen.hatnote.com/)
+* [Metadata - Echo Nest's Map of Musical Styles](http://static.echonest.com/playlist/moms/)
+* [Making Music with Tennis Data](https://www.youtube.com/watch?v=BUkwbsd-NcA)
+* [Sonifying the Flocking Algorithm (b2renger)](http://b2renger.github.io/pages_p5js/flock/index.html)
+
+**Musical Form**
+* [The Shape of Song (Martin Wattenberg)](http://www.bewitched.com/song.html)
+* [Infinite Jukebox (Paul Lamere / Echo Nest)](http://labs.echonest.com/Uploader/index.html?trid=TRSFLTX13AFB700570)
+
+**Lyrics**
+* [Solar (Robert Hodgin)](https://vimeo.com/658158)
+* [Lyrical Particles (Salem Al-Mansoori)](https://vimeo.com/80573061)
