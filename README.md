@@ -131,6 +131,7 @@ Participants may use whatever tools they wish, but the demos in this repo use th
 * [p5.gibber](http://charlie-roberts.com/gibber/p5-gibber/) Rapid music sequencing and synthesis. Also its own [live coding environment](http://gibber.mat.ucsb.edu/).
 * [Tone.js](https://github.com/TONEnoTONE/Tone.js) is a JS library for composing interactive music.
 * [dancer.js](https://github.com/jsantell/dancer.js) is a JS library for audio visualizations.
+* [heartbeat.js](http://abudaan.github.io/heartbeat/) is a JS library for working with MIDI.
 
 # Deeper into DSP
 * [Music and Computers online book, Columbia University](http://music.columbia.edu/cmc/MusicAndComputers/)
