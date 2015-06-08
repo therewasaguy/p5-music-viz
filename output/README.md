@@ -1,3 +1,9 @@
+---
+#Eyeo '15 Gallery
+[Klas](http://klasericsson.com/eyeo-workshop-2015/)
+
+---
+#MozFest '14
 
 ![image](http://www.itp.jasonsigal.cc/wp-content/uploads/2014/10/2014-10-26-12.03.43.jpg)
 
@@ -20,6 +26,6 @@ A few of the ideas that came out of this session:
 - live generative visuals
 - find natural "break points" in spoken audio
 
-With all of these incredible ideas, a two hour session was barely enough time to even begin. But so far, a few participants have shared some work that came out of this session, and we hope to hear more sooon!
+A few participants shared projects that came out of this session:
 - [lyrics visualizer](http://therewasaguy.github.io/mozfest/output/lyrics_visualizer/) by @indefinit
 - [recorder](http://markmoriarty.com/mozfest/) by @markitics 
