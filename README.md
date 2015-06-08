@@ -145,6 +145,7 @@ Participants may use whatever tools they wish, but the demos in this repo use th
 * [Notations21](http://www.notations21.net/)
 * [Piano Phase (Alex Chen)](http://www.pianophase.com/)
 * [George & Jonathan](http://www.georgeandjonathan.com/)
+* [dennis.video, generative video by George ^](http://www.dennis.video/)
 * [Stephen Malinowski's Music Animation Machine](http://www.musanim.com/)
 * [Artikulation (Rainer Wehinger / Gyorgy Ligeti)](https://www.youtube.com/watch?v=71hNl_skTZQ)
 * [animatednotation.com](http://animatednotation.com)
