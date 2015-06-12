@@ -43,7 +43,7 @@ This session is for anyone who would like to explore music, visuals and creative
 
 ##3. Pitch
 *autocorrelation in the time domain to detect fundamental frequency*
->>>>>>> aa5e7cf26543a2ab7d8e01d92b8b1523f36e8baf
+
 ### [Autocorrelate Time Domain](http://therewasaguy.github.io/p5-music-viz/demos/06a_autoCorrelation) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/05b_p5PeakDetect_simple/sketch.js)
 
 ### [Autocorrelation Circle](http://therewasaguy.github.io/p5-music-viz/demos/06b_autoCorrelationCircle) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/06b_autoCorrelationCircle/sketch.js)
