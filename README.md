@@ -110,7 +110,7 @@ Participants may use whatever tools they wish, but the demos in this repo use th
 
 [**p5.FFT**](http://p5js.org/reference/#/p5.FFT) - *Analyze amplitude over time / frequency.* [documentation](http://p5js.org/reference/#/p5.FFT) | [source code](https://github.com/processing/p5.js-sound/blob/master/src/fft.js) 
 - ```.analyze()``` returns amplitude readings from 0-255 in the frequency domain.
-- ```.waveform()``` returns amplitude readings from -1 to 1 in the time domain. [demo](http://therewasaguy.github.io/p5-music-viz/demos/03_fft_waveform) | [source](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/03_fft_waveform/sketch.js)
+- ```.waveform()``` returns amplitude readings from -1 to 1 in the time domain. [demo](http://therewasaguy.github.io/p5-music-viz/demos/03_time_domain_oscilloscope) | [source](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/03_time_domain_oscilloscope/sketch.js)
 
 
 ***Music included in the demos/repo:***
