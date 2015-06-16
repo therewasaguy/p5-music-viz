@@ -1,7 +1,20 @@
-/**
-  Get track data by uploading a file to the echo nest. You'll need an API Key. 
+/*
+  Pre-analyze a song using the Echo Nest API. It returns a JSON file with every beat, segment, section and more.
+
+  Each segment contains a start time, an end time, and an array of pitches. The pitches represent pitch classes
+  (i.e. C, C#, D, D#, E, F, G, G#, A, A#, B, C).
+  Each item in the pitches array gets a value between 0 and 1.0 indicating
+  how much of that pitch class is present in the section.
+
+  In this example, each slice of the pie represents one pitch class.
+  The size of the slices increases for every Echo Nest beat.
+  And the rotation changes when Echo Nest thinks there is a new section.
+
+  -- HOW TO USE THE ECHO NEST ANALYZER --
+  First, you'll need an API Key from developer.echonest.com.
   Then, open up the terminal and make this POST request with your mp3 path and API key:
   
+  Then, Upload your file to the Echo Nest by entering this in the commnd line:
   curl -F "api_key=[YOURAPIKEY]" -F "filetype=mp3" -F "track=@[PATH]" "http://developer.echonest.com/api/v4/track/upload"
   
   wait for the response...and copy the 'id' which is unique to your track upload.
@@ -14,7 +27,6 @@
   more info http://developer.echonest.com/raw_tutorials/faqs/faq_03.html
   Further reading: http://developer.echonest.com/docs/v4/_static/AnalyzeDocumentation.pdf
  */
-
 var echonestAnalysis;
 var cnv;
 var notes = new Array(12);
