@@ -22,7 +22,7 @@ function setup() {
   source = new p5.AudioIn();
   source.start();
 
-  fft = new p5.FFT(0.9, 2048);
+  fft = new p5.FFT(0.9, 1024);
   fft.setInput(source);
 }
 

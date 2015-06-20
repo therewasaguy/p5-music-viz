@@ -15,7 +15,7 @@
 var mic, fft, audioEl;
 
 var smoothing = 0;
-var binCount = 2048;
+var binCount = 1024;
 
 var birds = [];
 var birdCount = 100;
