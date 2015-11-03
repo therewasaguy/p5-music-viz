@@ -47,7 +47,7 @@ function draw() {
   background(200);
 
   // array of values from -1 to 1
-  var timeDomain = fft.waveform(2048, 'float32');
+  var timeDomain = fft.waveform(1024, 'float32');
   var corrBuff = autoCorrelate(timeDomain);
 
   beginShape();

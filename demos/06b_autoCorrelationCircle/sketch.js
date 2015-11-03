@@ -46,7 +46,7 @@ function draw() {
   var maxRad = height;
 
   // array of values from -1 to 1
-  var timeDomain = fft.waveform(2048, 'float32');
+  var timeDomain = fft.waveform(1024, 'float32');
   var corrBuff = autoCorrelate(timeDomain);
 
   var len = corrBuff.length;
