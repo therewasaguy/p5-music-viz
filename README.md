@@ -54,10 +54,10 @@ This session is for anyone who would like to explore music, visuals and creative
 *sync music to timestamped lyrics*
 ### [Display Lyrics](https://therewasaguy.github.io/p5-music-viz/demos/07_lyrics) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/07_lyrics/sketch.js)
 
-*pre-analyze file with the Echo Nest API, and visualize the result*
+*Visualizaitons with the Spotify Audio Analysis API (formerly Echo Nest API)*
 ### [Pre-rendered Analysis (via Echo Nest - Beat + Pitch)](https://therewasaguy.github.io/p5-music-viz/demos/08_echonestBeatPitch) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/08_echonestBeatPitch/sketch.js)
 
-### [Pre-rendered Analysis (via Echo Nest) - Pitch Segment 1](https://therewasaguy.github.io/p5-music-viz/demos/08_echonestPitchSegment) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/08_echonestPitchSegment/sketch.js)
+### [Pre-rendered Analysis (via Spotify) - Pitch Segment 1](https://therewasaguy.github.io/p5-music-viz/demos/08_echonestPitchSegment) | [Source Code](https://github.com/therewasaguy/p5-music-viz/blob/master/demos/08_echonestPitchSegment/sketch.js)
 
 ---
 
