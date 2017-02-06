@@ -38,6 +38,7 @@ function setup() {
 function draw() {
   background(255, 255, 255, 100);
   stroke(237, 34, 93, 120);
+  translate(width/2, height/2);
 
   // min radius of ellipse
   var minRad = 2;

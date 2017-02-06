@@ -45,6 +45,7 @@ function setup() {
 
 function draw() {
   background(200);
+  noFill();
 
   // array of values from -1 to 1
   var timeDomain = fft.waveform(1024, 'float32');
@@ -86,14 +87,12 @@ function autoCorrelate(timeDomainBuffer) {
   var autoCorrBuffer = [];
   for (var lag = 0; lag < nSamples; lag++){
     var sum = 0; 
-    for (var index = 0; index < nSamples; index++){
+    for (var index = 0; index < nSamples-lag; index++){
       var indexLagged = index+lag;
-      if (indexLagged < nSamples){
-        var sound1 = timeDomainBuffer[index];
-        var sound2 = timeDomainBuffer[indexLagged];
-        var product = sound1 * sound2;
-        sum += product;
-      }
+      var sound1 = timeDomainBuffer[index];
+      var sound2 = timeDomainBuffer[indexLagged];
+      var product = sound1 * sound2;
+      sum += product;
     }
 
     // average to a value between -1 and 1

@@ -1,31 +1,24 @@
 /*
-  Pre-analyze a song using the Echo Nest API. It returns a JSON file with every beat, segment, section and more.
+  Pre-analyze a song using the Spotify Audio Analysis endpoint (formerly part of the
+  Echo Nest API).
+
+  Step 1. Find your song's Spotify track URI / ID. You can use this API endpoint:
+  https://developer.spotify.com/web-api/search-item/
+  
+  Step 2: Get the track's audio analysis:
+  https://developer.spotify.com/web-api/get-audio-analysis/
+
+  If an audio analysis exists for the track, you'll get a JSON response
+  with every beat, segment, section and more.
 
   Each segment contains a start time, an end time, and an array of pitches. The pitches represent pitch classes
   (i.e. C, C#, D, D#, E, F, G, G#, A, A#, B, C).
   Each item in the pitches array gets a value between 0 and 1.0 indicating
   how much of that pitch class is present in the section.
 
-  In this example, each slice of the pie represents one pitch class.
-  The size of the slices increases for every Echo Nest beat.
-  And the rotation changes when Echo Nest thinks there is a new section.
-
-  -- HOW TO USE THE ECHO NEST ANALYZER --
-  First, you'll need an API Key from developer.echonest.com.
-  Then, open up the terminal and make this POST request with your mp3 path and API key:
-  
-  Then, Upload your file to the Echo Nest by entering this in the commnd line:
-  curl -F "api_key=[YOURAPIKEY]" -F "filetype=mp3" -F "track=@[PATH]" "http://developer.echonest.com/api/v4/track/upload"
-  
-  wait for the response...and copy the 'id' which is unique to your track upload.
-
-  Paste the ID and your API key into this GET request:
-  http://developer.echonest.com/api/v4/track/profile?api_key=[YOURAPIKEY]&format=json&id=[YOURTRACKID]&bucket=audio_summary
-
-  Click through to analysis_url, and save that JSON file
-
-  more info http://developer.echonest.com/raw_tutorials/faqs/faq_03.html
-  Further reading: http://developer.echonest.com/docs/v4/_static/AnalyzeDocumentation.pdf
+  In this example, each slice of the pie represents one `pitch class`.
+  The size of the slices increases for every `beat`.
+  The rotation changes at each new `section`.
  */
 
 var echonestAnalysis;
@@ -67,6 +60,7 @@ function setup() {
 
 function draw() {
   background(0, 0, 0, 20);
+  translate(width/2, height/2);
 
   rotate(rotation += rotationInc);
 
@@ -160,14 +154,14 @@ var Arc = function(index, diameter, angle, c) {
 
   this.angle = angle;
   this.color = c;
-  this.alpha = this.color.rgba[3];
+  this.alpha = this.color.levels[3];
   this.decayRate = 0.95;
 }
 
 Arc.prototype.triggerNote = function(val) {
   this.alpha = 255 * val;
   this.decayRate = 1 + val/25;
-  this.color.rgba[3] = this.alpha;
+  this.color.levels[3] = this.alpha;
 }
 
 Arc.prototype.releaseNote = function() {
@@ -187,7 +181,7 @@ Arc.prototype.draw = function() {
   this.radRate *= 0.98;
   this.radRate = constrain(this.radRate, 0.9, 1.5);
 
-  this.color.rgba[3] = this.alpha;
+  this.color.levels[3] = this.alpha;
   fill(this.color);
 
   var d = this.diameter + this.extraRad;

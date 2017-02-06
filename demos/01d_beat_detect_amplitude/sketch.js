@@ -56,6 +56,7 @@ function setup() {
   c = createCanvas(windowWidth, windowHeight);
   noStroke();
   rectMode(CENTER);
+  backgroundColor = color( random(0,255), random(0,255), random(0,255) );
 
   amplitude = new p5.Amplitude();
 

@@ -18,14 +18,13 @@ function preload() {
 
 function setup() {
   createCanvas(800, 400);
-  stroke(0);
-  fill(0);
   strokeWeight(2);
 }
 
 
 function draw() {
   background(255);
+  fill(0);
 
   peakCount = round( map(mouseX, 0, width, 1, 500) );
   if (peakCount < 8) {
@@ -34,7 +33,6 @@ function draw() {
 
   noStroke();
   text('Number of peaks: ' + peakCount, width - width/5, 20);
-
 
   stroke(0);
   var waveform = soundFile.getPeaks(peakCount);
